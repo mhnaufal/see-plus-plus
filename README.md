@@ -56,8 +56,8 @@ Maybe there's another options, but all I know for now are those 3 options.
     - `cmake_minimum_required(VERSION 3.10)`
     - `project(project_name)`
     - `add_executable(project_name, list_of_cpp_source_file)`
-    - `target_include_directories(project_name visibility list_of_directory)`: use this so that we can use **#include <
-      directory_name>** instead of normal double quotes
+    - `target_include_directories(project_name visibility list_of_directory)`: use this so that we can use *#include <
+      directory_name>* instead of normal double quotes
     - `target_link_directories(project_name visibility list_of_directory)`
     - `target_link_libraries(project_name, list_of_library)`
     - `add_library(library_name list_of_cpp_file)`: use this inside the sub folder to make this sub folder as a library
@@ -87,6 +87,8 @@ Maybe there's another options, but all I know for now are those 3 options.
 
 1. **Map**
 
+   Maps are always sorted according to the **key**. It means that even we randomly insert our key-value pairs, the C++
+   map will automatically sort it based on the key.
    In modern C++ (C++11), we can define and access elements inside map using different signature as follows:
     - **Define**
        ```c++
@@ -101,12 +103,34 @@ Maybe there's another options, but all I know for now are those 3 options.
        "johny depp"
        ```
 
+2. **Vector**
+
+   In vector, we have 2 important term to know, which are **size** and **capacity**
+    - **Size**: How many element already filled inside this vector
+    - **Capacity**: The maximum number of elements this vector can handle
+
+   Before the capacity reach it's maximum number, C++ will automatically expand it. To prevent this kind of behaviour,
+   we
+   can use **vector.reserve(int size)**
+
+   **C++11**: To insert a new element into a vector we can use: `vector.emplace_back()`
+
+3. **Unordered Map**
+
+   Faster than std::map. Implemented using **hashtable** and key type must be _hashable_
+    - `map.first`: same as take the key
+    - `map.second`: same as take the value
+
+4. **STL Algorithm**
+
+   It's a lot and you can [reference it here!](https://en.cppreference.com/w/cpp/algorithm)
+
 ## 💡 Acknowledgments
 
 Thanks to these awesome resources:
 
 - [Nodeflux](https://www.nodeflux.io)
-- [The Cherno](https://www.youtube.com/c/TheChernoProject)
+- [The Cherno](https://www.youtube.com/c/TheChernoProject)
 - [Modern C++ Lecture](https://www.youtube.com/playlist?list=PLgnQpQtFTOGRM59sr3nSL8BmeMZR9GCIA)
 - [CMake Dude](https://www.youtube.com/watch?v=nlKcXPUJGwA&list=PLalVdRk2RC6o5GHu618ARWh0VO0bFlif4&index=1&t=0s)
 - [CLion](https://www.jetbrains.com/clion/)
