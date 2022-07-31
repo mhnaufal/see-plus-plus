@@ -7,6 +7,7 @@ int main() {
 
   /* BASIC */
   create_response();
+  create_base_data(10);
 
   /* MODERN */
 
