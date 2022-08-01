@@ -1,6 +1,7 @@
 # 🕵️‍ She-Plus-Plus
 
 _Because it's hard to understand her, I'll try to understand C++ instead_
+_and it turns out that a lot of Rust's concept, borrowed from C++_
 
 ## 📚 Knowledge Gained
 
@@ -69,7 +70,7 @@ Maybe there's another options, but all I know for now are those 3 options.
    create a CMakeLists.txt** inside that sub folder.
 
    **In root CMakeLists.txt** add this:
-    - `add_subdirectory()`
+    - `add_subdirectory()`: only accept 1 directory as the parameter
     - `target_include_directories()`
     - `target_link_directories()`
     - `target_link_libraries()`
@@ -78,6 +79,12 @@ Maybe there's another options, but all I know for now are those 3 options.
     - `add_library()`
 
 ### 2️⃣ Basic C++
+
+1. **File**
+
+   We can read, write, and append from a file in _ASCII_ format and _binary format_.
+   It's a lot and I have practice it,
+   so [go ahead to this](https://www.delftstack.com/howto/cpp/how-to-append-text-to-a-file-in-cpp/) instead.
 
 ### 3️⃣ Object Oriented C++
 
@@ -124,6 +131,19 @@ Maybe there's another options, but all I know for now are those 3 options.
 4. **STL Algorithm**
 
    It's a lot and you can [reference it here!](https://en.cppreference.com/w/cpp/algorithm)
+
+5. **Smart Pointer**
+
+   [Microsoft C++](https://docs.microsoft.com/en-us/cpp/cpp/welcome-back-to-cpp-modern-cpp?view=msvc-170)
+   One of the reason smart pointer exists is that **memory leak** that often occur in C. Modern C++ use concept
+   called **RAII** (Resource Acquisition is Initialization) or in english means, **resource** (heap memory, file,
+   socket) shoudl be **owned** by an object (again, this is "rusty 🦀" thing).
+
+99. **Other Interesting In Modern C++**
+
+- **any**: It's a data type, but more like ANY type.
+- **optional**: Function that optionally return something.
+- **chrono**: Benchmark our C++ code.
 
 ## 💡 Acknowledgments
 
