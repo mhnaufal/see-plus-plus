@@ -1,3 +1,5 @@
+#include "basic.h"
+#include <fstream>
 #include <iostream>
 #include <map>
 #include <string>
@@ -26,6 +28,8 @@ void create_response() {
   for (const auto &pair : payload) {
     std::cout << pair.first << ":  " << pair.second << "  " << std::endl;
   }
+
+  std::cout << std::endl;
 }
 
 void create_base_data(int capacity) {
@@ -48,4 +52,31 @@ void create_base_data(int capacity) {
 
   std::cout << "size: " << data.size() << " capacity: " << data.capacity()
             << std::endl;
+
+  std::cout << std::endl;
+}
+
+void read_file_to_string() {
+  std::string line;
+  std::ifstream input_file("../Basic-CPP/mom.txt");
+
+  if (input_file.is_open()) {
+    while (getline(input_file, line)) {
+      std::cout << "FROM FILE: " << line << std::endl;
+    }
+    std::cout << std::endl;
+  }
+  input_file.close();
+}
+
+int append_to_file() {
+  std::string file_name = "../Basic-CPP/mom.txt";
+  std::ofstream out_file(file_name, std::ios_base::app);
+
+  if (!out_file.is_open()) {
+    return EXIT_FAILURE;
+  }
+
+  out_file << "\nHello Mom :)" << std::endl;
+  return EXIT_SUCCESS;
 }
