@@ -10,9 +10,10 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 add_executable(${PROJECT_NAME} main.cpp) # the exeexecutable name
 
 add_subdirectory(Basic-CPP) # connect other directory within this root directory
+add_subdirectory(Modern-CPP)
 
-target_include_directories(${PROJECT_NAME} PUBLIC Basic-CPP) # we can add this so that we can use #include <folder> instead of #include "folder"
+target_include_directories(${PROJECT_NAME} PUBLIC Basic-CPP Modern-CPP) # we can add this so that we can use #include <folder> instead of #include "folder"
 
-target_link_directories(${PROJECT_NAME} PRIVATE Basic-CPP) # link this root folder into the given sub folder
+target_link_directories(${PROJECT_NAME} PRIVATE Basic-CPP Modern-CPP) # link this root folder into the given sub folder
 
-target_link_libraries(${PROJECT_NAME} basic) # link this project with the given library name
+target_link_libraries(${PROJECT_NAME} basic modern) # link this project with the given library name
