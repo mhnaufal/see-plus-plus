@@ -43,3 +43,13 @@ std::optional<std::string> pick_character(int id_monster) {
   }
   return {};
 }
+
+void print_bird(Bird bird) {
+  std::cout << "x coordinate: " << bird.x_coordinate << "\n"
+            << "y coordinate: " << bird.y_coordinate << "\n"
+            << "speed: " << bird.speed << "\n";
+  std::cout << std::endl;
+}
+void Bird::fly(Bird bird) {
+  std::cout << "I fly with speed " << bird.speed << " km/s" << std::endl;
+}

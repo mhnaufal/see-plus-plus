@@ -8,15 +8,26 @@ int main() {
   std::cout << "[BASIC]" << std::endl;
   create_response();
   create_base_data(10);
-  read_file_to_string();
-  append_to_file();
+
+  //  read_file_to_string();
+  //  append_to_file();
   std::cout << "+-----------------------------------+" << std::endl
             << std::endl;
+
   /* MODERN */
   std::cout << "[MODERN]" << std::endl;
   some_cool_things();
+
+  Bird bird{
+      bird.x_coordinate = 10,
+      bird.y_coordinate = 9,
+      bird.speed = 8,
+  };
+  Bird::fly(bird);
+  print_bird(bird);
   std::cout << "+-----------------------------------+" << std::endl
             << std::endl;
+
   /* OOP */
   std::cout << "[OOP]" << std::endl;
   std::cout << "+-----------------------------------+" << std::endl
