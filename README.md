@@ -80,13 +80,41 @@ Maybe there's another options, but all I know for now are those 3 options.
 
 ### 2️⃣ Basic C++
 
-1. **File**
+1. **C++ Term**
+
+    - **Translation Unit**
+      There are a bunch of definitions about this, but for me it's **A source file after includes with header files and
+      other conditional preprocessing**
+    - **Class** and **Struct**
+      `class` and `struct` in C++ define a **new type**. Use `struct` as a data container without any function within,
+      and use `class` as data container with function. Although we can create function inside struct.
+    - **Static**
+      `static` functions are functions that are only visible within the same translation unit.
+
+2. **File**
 
    We can read, write, and append from a file in _ASCII_ format and _binary format_.
    It's a lot and I have practice it,
    so [go ahead to this](https://www.delftstack.com/howto/cpp/how-to-append-text-to-a-file-in-cpp/) instead.
 
 ### 3️⃣ Object Oriented C++
+
+1. **Class**
+   In other OOP programming languages, we call functions inside a class as **methods**, but here in C++ we called it **
+   Member Functions**. Also applies for **attributes**, we call it **Data Members**. Class members are **private** by
+   default, not like Struct where they are **public** by default.
+
+   Class need **at least one constructor** and **exactly one destructor**.
+
+   **Const correctness**: `const` after function name state that this function does not change the object. It's not only
+   for functions but other things to correct too.
+   example:
+   ```c++
+   const std::string name() const {
+      return name_;
+   }
+   ```
+   The first `const` ack as the return type and the second `const` mark that this function will not change the object.
 
 ### 4️⃣ Testing C++
 
@@ -110,6 +138,7 @@ Maybe there's another options, but all I know for now are those 3 options.
        "johny depp"
        ```
 
+
 2. **Vector**
 
    In vector, we have 2 important term to know, which are **size** and **capacity**
@@ -122,15 +151,18 @@ Maybe there's another options, but all I know for now are those 3 options.
 
    **C++11**: To insert a new element into a vector we can use: `vector.emplace_back()`
 
+
 3. **Unordered Map**
 
    Faster than std::map. Implemented using **hashtable** and key type must be _hashable_
     - `map.first`: same as take the key
     - `map.second`: same as take the value
 
+
 4. **STL Algorithm**
 
    It's a lot and you can [reference it here!](https://en.cppreference.com/w/cpp/algorithm)
+
 
 5. **Smart Pointer**
 
@@ -139,11 +171,13 @@ Maybe there's another options, but all I know for now are those 3 options.
    called **RAII** (Resource Acquisition is Initialization) or in english means, **resource** (heap memory, file,
    socket) shoudl be **owned** by an object (again, this is "rusty 🦀" thing).
 
+
 99. **Other Interesting In Modern C++**
 
 - **any**: It's a data type, but more like ANY type.
 - **optional**: Function that optionally return something.
 - **chrono**: Benchmark our C++ code.
+- **constexpr**: Use this as a macro instead of `#define`
 
 ## 💡 Acknowledgments
 
