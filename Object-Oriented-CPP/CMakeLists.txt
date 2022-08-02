@@ -1,0 +1,1 @@
+add_library(oop oop.cpp)
