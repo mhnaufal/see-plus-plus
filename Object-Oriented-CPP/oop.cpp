@@ -13,3 +13,5 @@ std::ostream &operator<<(std::ostream &os, const Enemy &enemy) {
             << " y: " << enemy.get_y_coordinate()
             << " spawn: " << enemy.get_spawn_time() << std::endl;
 }
+
+auto& singleton = Singleton::GetInstance();

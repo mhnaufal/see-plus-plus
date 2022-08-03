@@ -40,6 +40,9 @@ int main() {
   std::cout << "[OOP]" << std::endl;
   Enemy enemy{3, 5, 1.2};
   std::cout << enemy << std::endl;
+
+  SmallEnemy sm(3, 9.9); // SmallEnemy only need to specify 2 arguments instead of 3 like Enemy
+  std::cout << "small-enemy: " << sm << std::endl;
   std::cout << "+-----------------------------------+" << std::endl
             << std::endl;
   return 0;
