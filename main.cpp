@@ -3,6 +3,7 @@
 #include <iostream>
 #include <modern.h>
 #include <oop.h>
+#include <pointer.h>
 
 int main() {
   /* BASIC */
@@ -43,6 +44,12 @@ int main() {
 
   SmallEnemy sm(3, 9.9); // SmallEnemy only need to specify 2 arguments instead of 3 like Enemy
   std::cout << "small-enemy: " << sm << std::endl;
+  std::cout << "+-----------------------------------+" << std::endl
+            << std::endl;
+
+  /* POINTER */
+  std::cout << "[POINTER]" << std::endl;
+  basic_pointer();
   std::cout << "+-----------------------------------+" << std::endl
             << std::endl;
   return 0;

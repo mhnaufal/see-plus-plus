@@ -12,9 +12,10 @@ add_executable(${PROJECT_NAME} main.cpp) # the exeexecutable name
 add_subdirectory(Basic-CPP) # connect other directory within this root directory
 add_subdirectory(Modern-CPP)
 add_subdirectory(Object-Oriented-CPP)
+add_subdirectory(Pointer-CPP)
 
-target_include_directories(${PROJECT_NAME} PUBLIC Basic-CPP Modern-CPP Object-Oriented-CPP) # we can add this so that we can use #include <folder> instead of #include "folder"
+target_include_directories(${PROJECT_NAME} PUBLIC Basic-CPP Modern-CPP Object-Oriented-CPP Pointer-CPP) # we can add this so that we can use #include <folder> instead of #include "folder"
 
-target_link_directories(${PROJECT_NAME} PRIVATE Basic-CPP Modern-CPP Object-Oriented-CPP) # link this root folder into the given sub folder
+target_link_directories(${PROJECT_NAME} PRIVATE Basic-CPP Modern-CPP Object-Oriented-CPP Pointer-CPP) # link this root folder into the given sub folder
 
-target_link_libraries(${PROJECT_NAME} basic modern oop) # link this project with the given library name
+target_link_libraries(${PROJECT_NAME} basic modern oop pointer) # link this project with the given library name
