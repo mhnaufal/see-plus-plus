@@ -1,6 +1,6 @@
 # 🕵️‍ She-Plus-Plus
 
-_Because it's hard to understand her, I'll try to understand C++ instead_
+_Because it's hard to understand her, I'll try to understand C++ instead,_
 _and it turns out that a lot of Rust's concept, borrowed from C++_
 
 ## 📚 Knowledge Gained
@@ -83,7 +83,7 @@ Maybe there's another options, but all I know for now are those 3 options.
 1. **C++ Term**
 
     - **Translation Unit**
-      There are a bunch of definitions about this, but for me it's **A source file after includes with header files and
+      There are a bunch of definitions about this, but for me, it's **A source file after includes with header files and
       other conditional preprocessing**
     - **Class** and **Struct**
       `class` and `struct` in C++ define a **new type**. Use `struct` as a data container without any function within,
@@ -111,9 +111,10 @@ Maybe there's another options, but all I know for now are those 3 options.
        int&& c = std::move(b);
        ```
       _b_ is initially and lvalue, but then we use `std::move()` to change it into rvalue, and then we put the result in
-      a _c_ which is an rvalue because we moved it from lvalue into rvalue using _&&_
-    - `std::move(x)` = means "give me an **rvalue reference to x**". It can be said that `std::move()` is an **
-      ownership** (rusty thing 🦀). [Nice read](https://eli.thegreenplace.net/2011/12/15/understanding-lvalues-and-rvalues-in-c-and-c/)
+      a _c_ which is a rvalue because we moved it from lvalue into rvalue using _&&_
+    - `std::move(x)` = means "give me a **rvalue reference to x**". It can be said that `std::move()` is an **
+      ownership** (rusty thing 🦀)
+      . [Nice read](https://eli.thegreenplace.net/2011/12/15/understanding-lvalues-and-rvalues-in-c-and-c/)
 
 ### 3️⃣ Object Oriented C++
 
@@ -133,6 +134,7 @@ Maybe there's another options, but all I know for now are those 3 options.
    }
    ```
    The first `const` ack as the return type and the second `const` mark that this function will not change the object.
+   `class` and `struct` can inherit data & functions from other classes.
 
 2. **Operator Overloading**
    Operator in C++ it's just another function with the word **operator**.
@@ -146,6 +148,20 @@ Maybe there's another options, but all I know for now are those 3 options.
 3. **Class Special Functions**
    There are 6 class special functions and compiler already **generate them** automatically if we don't specify one.
    However, if we specify at least one, the compiler will not generate the rest. One for None.
+
+4. **Inheritance**
+   There are 3 types of inheritance in C++, **public**, **private**, and **protected** (it's different with access
+   modifier).
+    - **explicit** =
+    - **virtual function** = whenever a class derived/inherit from a class that has virtual functions on it, the derived
+      class must implement the virtual function a.k.a. virtual function used to ensure that a function is overridden
+    - **pure virtual function** = a virtual function that ended with `= 0;` that doesn't have any use in the base class
+      but must be implemented in the derived class. A class that contains pure virtual functions is known as **abstract
+      class**.
+    - **override** = used alongside with `virtual` as a mark that this function is derived implementation from the
+      parent class
+    - **interface** = In C++, we can create an interface by defining a class with **no data members** and all function
+      members are **virtual function**
 
 ### 4️⃣ Testing C++
 
