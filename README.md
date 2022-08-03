@@ -116,6 +116,9 @@ Maybe there's another options, but all I know for now are those 3 options.
       ownership** (rusty thing 🦀)
       . [Nice read](https://eli.thegreenplace.net/2011/12/15/understanding-lvalues-and-rvalues-in-c-and-c/)
 
+4. **Pointer**
+   Just check out the code for this one!
+
 ### 3️⃣ Object Oriented C++
 
 1. **Class**
