@@ -89,13 +89,31 @@ Maybe there's another options, but all I know for now are those 3 options.
       `class` and `struct` in C++ define a **new type**. Use `struct` as a data container without any function within,
       and use `class` as data container with function. Although we can create function inside struct.
     - **Static**
-      `static` functions are functions that are only visible within the same translation unit.
+      `static` functions and data are functions and data that are only visible within the same translation unit. In C++
+      class, we use `::` double colon to access them.
+    - **using**
+      `using` to shorten your code!
 
 2. **File**
 
    We can read, write, and append from a file in _ASCII_ format and _binary format_.
    It's a lot and I have practice it,
    so [go ahead to this](https://www.delftstack.com/howto/cpp/how-to-append-text-to-a-file-in-cpp/) instead.
+
+3. **lvalue** and **rvalue**
+    - `lvalue` = written in the **left** of assigment operator **=**
+    - `rvalue` = written in the **right** of assigment operator **=**. Explicit `rvalue` defined using `&&`
+       ```c++
+       int b = a + 2;
+       ```
+      _b_ is lvalue and _a + 2_ is rvalue.
+       ```c++
+       int&& c = std::move(b);
+       ```
+      _b_ is initially and lvalue, but then we use `std::move()` to change it into rvalue, and then we put the result in
+      a _c_ which is an rvalue because we moved it from lvalue into rvalue using _&&_
+    - `std::move(x)` = means "give me an **rvalue reference to x**". It can be said that `std::move()` is an **
+      ownership** (rusty thing 🦀). [Nice read](https://eli.thegreenplace.net/2011/12/15/understanding-lvalues-and-rvalues-in-c-and-c/)
 
 ### 3️⃣ Object Oriented C++
 
@@ -107,7 +125,7 @@ Maybe there's another options, but all I know for now are those 3 options.
    Class need **at least one constructor** and **exactly one destructor**.
 
    **Const correctness**: `const` after function name state that this function does not change the object. It's not only
-   for functions but other things to correct too.
+   for functions but other things to correct too. Only available for member functions!
    example:
    ```c++
    const std::string name() const {
@@ -115,6 +133,19 @@ Maybe there's another options, but all I know for now are those 3 options.
    }
    ```
    The first `const` ack as the return type and the second `const` mark that this function will not change the object.
+
+2. **Operator Overloading**
+   Operator in C++ it's just another function with the word **operator**.
+
+   Format: `<RETURN_TYPE> operator<NAME>(<PARAMS>)`
+
+   where <NAME> are one of `>, <, =, ==, <<`. For example if we create a `<<` operator overloading, so when
+   using `std::cout <<` we don't need to specify the elements that we want to print (look in code example for more clear
+   explanation!)
+
+3. **Class Special Functions**
+   There are 6 class special functions and compiler already **generate them** automatically if we don't specify one.
+   However, if we specify at least one, the compiler will not generate the rest. One for None.
 
 ### 4️⃣ Testing C++
 
@@ -138,7 +169,6 @@ Maybe there's another options, but all I know for now are those 3 options.
        "johny depp"
        ```
 
-
 2. **Vector**
 
    In vector, we have 2 important term to know, which are **size** and **capacity**
@@ -151,26 +181,25 @@ Maybe there's another options, but all I know for now are those 3 options.
 
    **C++11**: To insert a new element into a vector we can use: `vector.emplace_back()`
 
-
 3. **Unordered Map**
 
    Faster than std::map. Implemented using **hashtable** and key type must be _hashable_
     - `map.first`: same as take the key
     - `map.second`: same as take the value
 
-
 4. **STL Algorithm**
 
    It's a lot and you can [reference it here!](https://en.cppreference.com/w/cpp/algorithm)
-
 
 5. **Smart Pointer**
 
    [Microsoft C++](https://docs.microsoft.com/en-us/cpp/cpp/welcome-back-to-cpp-modern-cpp?view=msvc-170)
    One of the reason smart pointer exists is that **memory leak** that often occur in C. Modern C++ use concept
    called **RAII** (Resource Acquisition is Initialization) or in english means, **resource** (heap memory, file,
-   socket) shoudl be **owned** by an object (again, this is "rusty 🦀" thing).
+   socket) should be **owned** by an object (again, this is "rusty 🦀" thing).
 
+6. **Move Semantic**
+   Before dive into move semantic, understand **lvalue** and **rvalue** first!
 
 99. **Other Interesting In Modern C++**
 
