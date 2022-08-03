@@ -2,6 +2,7 @@
 #include <basic.h> // we can use this because we use `target_include_directories` in root CMakeLists.txt
 #include <iostream>
 #include <modern.h>
+#include <oop.h>
 
 int main() {
   /* BASIC */
@@ -9,8 +10,15 @@ int main() {
   create_response();
   create_base_data(10);
 
-  //  read_file_to_string();
+  read_file_to_string();
   //  append_to_file();
+
+  std::string hello = "Hello ", mom = "mom!";
+  print(hello);          // "hello" is a lvalue
+  print("world!");       // "world!" is an rvalue
+  print(std::move(mom)); // "mom!" is an rvalue
+  //  print(std::move(mom)); // WARN = don't ever to try access variable "mom"
+  //  again!
   std::cout << "+-----------------------------------+" << std::endl
             << std::endl;
 
@@ -30,6 +38,8 @@ int main() {
 
   /* OOP */
   std::cout << "[OOP]" << std::endl;
+  Enemy enemy{3, 5, 1.2};
+  std::cout << enemy << std::endl;
   std::cout << "+-----------------------------------+" << std::endl
             << std::endl;
   return 0;

@@ -80,3 +80,9 @@ int append_to_file() {
   out_file << "\nHello Mom :)" << std::endl;
   return EXIT_SUCCESS;
 }
+
+void print(const std::string& str) {
+  std::cout << "lvalue: " << str << std::endl;
+}
+
+void print(std::string &&str) { std::cout << "rvalue: " << str << std::endl; }
