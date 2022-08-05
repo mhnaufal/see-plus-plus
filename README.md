@@ -1,7 +1,8 @@
 # 🕵️‍ She-Plus-Plus
 
-_Because it's hard to understand her, I'll try to understand C++ instead,_
-_and it turns out that a lot of Rust's concept, borrowed from C++_
+Because it's hard to understand her, I'll try to understand C++ instead, and it turns out that a lot of Rust's concept, borrowed from C++
+
+## Table of Contents
 
 ## 📚 Knowledge Gained
 
@@ -78,6 +79,8 @@ Maybe there's another options, but all I know for now are those 3 options.
    **In the sub folder CMakeLists.txt** add this:
     - `add_library()`
 
+---
+
 ### 2️⃣ Basic C++
 
 1. **C++ Term**
@@ -117,7 +120,9 @@ Maybe there's another options, but all I know for now are those 3 options.
       . [Nice read](https://eli.thegreenplace.net/2011/12/15/understanding-lvalues-and-rvalues-in-c-and-c/)
 
 4. **Pointer**
-   Just check out the code for this one!
+   Just check out [the code for this one!](https://github.com/mhnaufal/see-plus-plus/tree/main/Pointer-CPP)
+
+---
 
 ### 3️⃣ Object Oriented C++
 
@@ -166,7 +171,11 @@ Maybe there's another options, but all I know for now are those 3 options.
     - **interface** = In C++, we can create an interface by defining a class with **no data members** and all function
       members are **virtual function**
 
+---
+
 ### 4️⃣ Testing C++
+
+---
 
 ### 5️⃣ Modern C++
 
@@ -218,7 +227,7 @@ Maybe there's another options, but all I know for now are those 3 options.
    socket) should be **owned** by an object (again, this is "rusty 🦀" thing).
 
 6. **Move Semantic**
-   Before dive into move semantic, understand **lvalue** and **rvalue** first!
+   Before dive into move semantic, understand [**lvalue** and **rvalue** first!](#2%EF%B8%8F%E2%83%A3-basic-c)
 
 99. **Other Interesting In Modern C++**
 
