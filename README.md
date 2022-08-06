@@ -1,6 +1,7 @@
 # 🕵️‍ She-Plus-Plus
 
-Because it's hard to understand her, I'll try to understand C++ instead, and it turns out that a lot of Rust's concept, borrowed from C++
+Because it's hard to understand her, I'll try to understand C++ instead, and it turns out that a lot of Rust's concept,
+borrowed from C++
 
 ## Table of Contents
 
@@ -104,8 +105,11 @@ Maybe there's another options, but all I know for now are those 3 options.
    so [go ahead to this](https://www.delftstack.com/howto/cpp/how-to-append-text-to-a-file-in-cpp/) instead.
 
 3. **lvalue** and **rvalue**
-    - `lvalue` = written in the **left** of assigment operator **=**
-    - `rvalue` = written in the **right** of assigment operator **=**. Explicit `rvalue` defined using `&&`
+
+   _this is not the "correct" definition, but this is the "easiest" definition to understand_
+    - `lvalue` = written in the **left** of assigment operator **=**. Has **storage**
+    - `rvalue` = written in the **right** of assigment operator **=**. Explicit `rvalue` defined using `&&`. Doesn't
+      have **storage** or it just temporary
        ```c++
        int b = a + 2;
        ```
@@ -118,9 +122,33 @@ Maybe there's another options, but all I know for now are those 3 options.
     - `std::move(x)` = means "give me a **rvalue reference to x**". It can be said that `std::move()` is an **
       ownership** (rusty thing 🦀)
       . [Nice read](https://eli.thegreenplace.net/2011/12/15/understanding-lvalues-and-rvalues-in-c-and-c/)
+    - `lvalue` can only take lvalue unless it's `const` and `rvalue` can only take rvalue too.
 
 4. **Pointer**
    Just check out [the code for this one!](https://github.com/mhnaufal/see-plus-plus/tree/main/Pointer-CPP)
+    - `&`: address of operator/reference (value ➡ address)
+    - `*` _without data type_: dereference (address ➡ value)
+    - `int*` _with data type_: declare a pointer
+      example:
+   ```c++
+   int x = 100; // declare a variable called x with type of in  t
+   int *y; // declare a variable called y with type of *int
+   y = &x // assign a variable y with the value of address of x
+   ```
+   To create an object in C++, we usually (_most of the time actually_) don't use `new` keyword, because `new` will
+   allocate the data into **heap memory**, therefore we need to deallocate it using `delete`
+
+   ✅ recommended
+   ```c++
+   User user;  // placed inside the stack memory
+   ```
+
+   ❌ not recommended
+   ```c++
+   User user = new User(); // placed inside the heap memory
+   ```
+
+   🚫 We **CAN'T REASSIGN** a reference.
 
 ---
 
@@ -141,6 +169,7 @@ Maybe there's another options, but all I know for now are those 3 options.
       return name_;
    }
    ```
+
    The first `const` ack as the return type and the second `const` mark that this function will not change the object.
    `class` and `struct` can inherit data & functions from other classes.
 
@@ -229,12 +258,26 @@ Maybe there's another options, but all I know for now are those 3 options.
 6. **Move Semantic**
    Before dive into move semantic, understand [**lvalue** and **rvalue** first!](#2%EF%B8%8F%E2%83%A3-basic-c)
 
+   **Why we need move semantic?** 
+
+   we do a lot of object passing but we don't want to copy the object, we just want to
+   pass the ownership of the object. Imagine we pass an object to a function, we need to copy the object inside the
+   function, the same goes for when we return an object from a function, we need to copy it again!
+   Thus, instead of copy the object why we don't just move it? Here's where move semantic comes in.
+   
+
 99. **Other Interesting In Modern C++**
 
 - **any**: It's a data type, but more like ANY type.
 - **optional**: Function that optionally return something.
 - **chrono**: Benchmark our C++ code.
 - **constexpr**: Use this as a macro instead of `#define`
+
+---
+
+### 6️⃣ OpenCV C++
+
+---
 
 ## 💡 Acknowledgments
 
