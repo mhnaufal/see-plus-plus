@@ -81,8 +81,14 @@ int append_to_file() {
   return EXIT_SUCCESS;
 }
 
-void print(const std::string& str) {
+void print(const std::string &str) {
   std::cout << "lvalue: " << str << std::endl;
 }
 
 void print(std::string &&str) { std::cout << "rvalue: " << str << std::endl; }
+
+void print_name(const std::string &name) { std::cout << name << std::endl; }
+
+void print_full_name(const std::string &&name) {
+  std::cout << name << std::endl;
+}

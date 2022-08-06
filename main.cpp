@@ -14,12 +14,20 @@ int main() {
   read_file_to_string();
   //  append_to_file();
 
-  std::string hello = "Hello ", mom = "mom!";
+  std::string hello = "Hello ", mom = "mom!", world = "world!";
   print(hello);          // "hello" is a lvalue
   print("world!");       // "world!" is an rvalue
   print(std::move(mom)); // "mom!" is an rvalue
   //  print(std::move(mom)); // WARN = don't ever to try access variable "mom"
   //  again!
+
+  std::string firstname = "Mr", lastname = "X";
+  print_name("Mr. X");
+  print_name(firstname + lastname); // we can do this because we use const in
+                                    // the parameter of the function
+  // print_full_name(firstname); // ERROR: because this function only accept
+  // rvalue reference
+  print_full_name(firstname + lastname); // we input rvalue as the argument
   std::cout << "+-----------------------------------+" << std::endl
             << std::endl;
 
@@ -42,7 +50,8 @@ int main() {
   Enemy enemy{3, 5, 1.2};
   std::cout << enemy << std::endl;
 
-  SmallEnemy sm(3, 9.9); // SmallEnemy only need to specify 2 arguments instead of 3 like Enemy
+  SmallEnemy sm(3, 9.9); // SmallEnemy only need to specify 2 arguments instead
+                         // of 3 like Enemy
   std::cout << "small-enemy: " << sm << std::endl;
   std::cout << "+-----------------------------------+" << std::endl
             << std::endl;
