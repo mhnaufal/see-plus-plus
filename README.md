@@ -204,6 +204,36 @@ Maybe there's another options, but all I know for now are those 3 options.
 
 ### 4️⃣ Testing C++
 
+Some famous C++ test libraries are: **Google Test**, **Doctest**, and **Catch2**
+
+1. **Doctest**
+
+   This one is the easiest to set up among the other two libraries. The only setup we need is to download the header
+   file,
+   and we're good to go (beside set up the cmake of course).
+
+   To run the doctest:
+   ```shell
+   cd build
+   cmake ..
+   cd Testing-CPP
+   ./tests
+   ```
+
+   result:
+   ```doctest
+   [doctest] doctest version is "2.4.9"
+   [doctest] run with "--help" for options
+   ===============================================================================
+   [doctest] test cases: 1 | 1 passed | 0 failed | 0 skipped
+   [doctest] assertions: 3 | 3 passed | 0 failed |
+   [doctest] Status: SUCCESS!
+   ```
+
+2. **Catch2**
+
+3. **Google Test**
+
 ---
 
 ### 5️⃣ Modern C++
@@ -258,13 +288,13 @@ Maybe there's another options, but all I know for now are those 3 options.
 6. **Move Semantic**
    Before dive into move semantic, understand [**lvalue** and **rvalue** first!](#2%EF%B8%8F%E2%83%A3-basic-c)
 
-   **Why we need move semantic?** 
+   **Why we need move semantic?**
 
-   we do a lot of object passing but we don't want to copy the object, we just want to
+   we do a lot of object passing, but we don't want to copy the object, we just want to
    pass the ownership of the object. Imagine we pass an object to a function, we need to copy the object inside the
    function, the same goes for when we return an object from a function, we need to copy it again!
    Thus, instead of copy the object why we don't just move it? Here's where move semantic comes in.
-   
+
 
 99. **Other Interesting In Modern C++**
 
