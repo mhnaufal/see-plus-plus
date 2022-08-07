@@ -1,5 +1,6 @@
 #include "pointer.h"
 #include <iostream>
+#include <utility>
 
 void basic_pointer() {
   int *null_ptr; // initialize a pointer using "*" next to variable name
@@ -36,3 +37,36 @@ void basic_pointer() {
 }
 
 void increase(int &score) { score++; }
+
+/* It is not directly correlate with pointer (it's class and object thing), but
+ * put it inside pointer part is the correct thing to do */
+class Pokemon {
+private:
+  std::string name_;
+
+public:
+  Pokemon() : name_("Pocketol") {}
+  explicit Pokemon(std::string name) : name_(std::move(name)) {}
+  [[nodiscard]] const std::string &getName() const { return name_; }
+};
+
+void play_pokemon() {
+  /* Allocate object in static world
+   * no need to manually delete because it will automatically get deleted when
+   * goes out of scope, object can only live inside the scope */
+  {
+    Pokemon pk1;
+    std::cout << "pk1 name: " << pk1.getName() << std::endl;
+  }
+  //  std::cout << "pk1 name: " << pk1.getName() << std::endl; // ERROR: beside
+  //  the variable pk1 is undeclared, the
+  // object in static world is already dead too
+
+  /* Allocate object in heap world
+   * need to manually call delete, object can live even already out of scope */
+  auto *pk2 = new Pokemon("Fire Blast");
+  std::cout << "pk2 name: " << pk2->getName() << std::endl;
+  delete pk2;
+
+  std::cout << std::endl;
+}

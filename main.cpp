@@ -59,6 +59,7 @@ int main() {
   /* POINTER */
   std::cout << "[POINTER]" << std::endl;
   basic_pointer();
+  play_pokemon();
   std::cout << "+-----------------------------------+" << std::endl
             << std::endl;
   return 0;
