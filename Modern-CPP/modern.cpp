@@ -50,6 +50,7 @@ void print_bird(Bird bird) {
             << "speed: " << bird.speed << "\n";
   std::cout << std::endl;
 }
+
 void Bird::fly(Bird bird) {
   std::cout << "I fly with speed " << bird.speed << " km/s" << std::endl;
 }
