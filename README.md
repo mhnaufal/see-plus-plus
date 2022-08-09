@@ -173,6 +173,17 @@ Maybe there's another options, but all I know for now are those 3 options.
    The first `const` ack as the return type and the second `const` mark that this function will not change the object.
    `class` and `struct` can inherit data & functions from other classes.
 
+   **Member Initializer List** = C++ ways to initialize members in constructor. Must be list in exact the same order
+   with the data member.
+   ```c++
+   class Number {
+      int a;
+      int b;
+   public:
+      Number()
+         : a(0), b(1)
+   ```
+
 2. **Operator Overloading**
    Operator in C++ it's just another function with the word **operator**.
 
@@ -189,7 +200,7 @@ Maybe there's another options, but all I know for now are those 3 options.
 4. **Inheritance**
    There are 3 types of inheritance in C++, **public**, **private**, and **protected** (it's different with access
    modifier).
-    - **explicit** =
+    - **explicit** = prevent the compiler to do an implicit casting. Implicit casting only happen one time.
     - **virtual function** = whenever a class derived/inherit from a class that has virtual functions on it, the derived
       class must implement the virtual function a.k.a. virtual function used to ensure that a function is overridden
     - **pure virtual function** = a virtual function that ended with `= 0;` that doesn't have any use in the base class
