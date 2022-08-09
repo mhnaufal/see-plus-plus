@@ -68,5 +68,17 @@ void play_pokemon() {
   std::cout << "pk2 name: " << pk2->getName() << std::endl;
   delete pk2;
 
+  /* The 'new' keyword
+   * can be used in any data type, not just for classes
+   * allocation done on the heap
+   * it will find X bytes of memory and return a pointer to it */
+  int *num = new int; // allocate 4 bytes of memory
+  std::cout << num << std::endl;
+  delete num;
+
+  // if we allocate with [], so we need also define [] when we want to delete it
+  int *nums = new int[25];
+  delete[] nums;
+
   std::cout << std::endl;
 }
