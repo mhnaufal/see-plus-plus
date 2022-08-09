@@ -82,3 +82,21 @@ void play_pokemon() {
 
   std::cout << std::endl;
 }
+
+class Sprite {
+private:
+  int pos_x, pos_y;
+
+public:
+  void set_initial_position(int pos_x, int pos_y) {
+    // pos_x = pos_x; // we can't do this in C++
+    // Sprite* const s = this; // what actually this is
+    this->pos_x = pos_x;
+    this->pos_y = pos_y;
+  }
+
+  int get_pos_x() {
+    // const Sprite* s = this; // what actually this is
+    return this->pos_x;
+  }
+};
