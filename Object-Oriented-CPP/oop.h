@@ -3,6 +3,7 @@
 
 #include <iostream>
 
+/* abstract class */
 class IEnemy {
 public:
   virtual void print() const = 0; // pure virtual function

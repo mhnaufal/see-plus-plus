@@ -202,7 +202,7 @@ Maybe there's another options, but all I know for now are those 3 options.
    modifier).
     - **explicit** = prevent the compiler to do an implicit casting. Implicit casting only happen one time.
     - **virtual function** = whenever a class derived/inherit from a class that has virtual functions on it, the derived
-      class must implement the virtual function a.k.a. virtual function used to ensure that a function is overridden
+      class has option to implement the virtual function or not
     - **pure virtual function** = a virtual function that ended with `= 0;` that doesn't have any use in the base class
       but must be implemented in the derived class. A class that contains pure virtual functions is known as **abstract
       class**.
