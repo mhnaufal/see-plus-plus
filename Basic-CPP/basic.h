@@ -17,4 +17,19 @@ void print_full_name(
     const std::string &&
         name); // this function accept "rvalue reference" as the input parameter
 
+namespace TOKEN {
+enum TOKEN_TYPE : unsigned int {
+  END_OF_FILE,
+  VARIABLE,
+  OPERATOR,
+  LITERAL,
+  RIGHT_BRACKET = 5,
+  LEFT_BRACKET = 6,
+  UNDERSCORE, // will continue from 7
+  SEMICOLON
+};
+}
+
+void print_token_type();
+
 #endif // SHE_PLUS_PLUS_BASIC_H

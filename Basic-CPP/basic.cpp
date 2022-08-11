@@ -92,3 +92,11 @@ void print_name(const std::string &name) { std::cout << name << std::endl; }
 void print_full_name(const std::string &&name) {
   std::cout << name << std::endl;
 }
+
+void print_token_type() {
+  for (int token = TOKEN::TOKEN_TYPE::END_OF_FILE;
+       token != TOKEN::TOKEN_TYPE::SEMICOLON; token++) {
+    std::cout << token << " ";
+  }
+  std::cout << std::endl;
+}

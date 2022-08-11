@@ -11,9 +11,11 @@ int main() {
   create_response();
   create_base_data(10);
 
+  // File
   read_file_to_string();
   //  append_to_file();
 
+  // lvalue and rvalue
   std::string hello = "Hello ", mom = "mom!", world = "world!";
   print(hello);          // "hello" is a lvalue
   print("world!");       // "world!" is an rvalue
@@ -28,6 +30,11 @@ int main() {
   // print_full_name(firstname); // ERROR: because this function only accept
   // rvalue reference
   print_full_name(firstname + lastname); // we input rvalue as the argument
+  std::cout << std::endl;
+
+  // enum
+  std::cout << "enum token ";
+  print_token_type();
   std::cout << "+-----------------------------------+" << std::endl
             << std::endl;
 
