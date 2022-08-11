@@ -150,6 +150,11 @@ Maybe there's another options, but all I know for now are those 3 options.
 
    🚫 We **CAN'T REASSIGN** a reference.
 
+5. **Enum**
+   The way we name a value. It's just an integer with name. Enum will start from 0 and increment until the last element
+   on it.
+   If we specify the first value of enum to any number except 0, the rest of the elements will increment from it.
+
 ---
 
 ### 3️⃣ Object Oriented C++
