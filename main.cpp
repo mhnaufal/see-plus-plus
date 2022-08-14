@@ -40,6 +40,7 @@ int main() {
 
   /* MODERN */
   std::cout << "[MODERN]" << std::endl;
+  // type
   some_cool_things();
 
   Bird bird{
@@ -49,6 +50,13 @@ int main() {
   };
   Bird::fly(bird);
   print_bird(bird);
+
+  // function pointer
+  auto call_func = hello_func_pointer;
+  // typedef void(*HelloFuncPointer)(int); // this is same with previous one
+  call_func(313);
+  std::vector<int> values = {1, 3, 5, 2, 8};
+  ForEach(values, PrintValue);
   std::cout << "+-----------------------------------+" << std::endl
             << std::endl;
 

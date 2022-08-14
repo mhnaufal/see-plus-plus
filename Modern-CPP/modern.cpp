@@ -54,3 +54,16 @@ void print_bird(Bird bird) {
 void Bird::fly(Bird bird) {
   std::cout << "I fly with speed " << bird.speed << " km/s" << std::endl;
 }
+
+void hello_func_pointer(int num) {
+  std::cout << "Hello mom 😍 " << num << std::endl;
+}
+
+void PrintValue(int value) { std::cout << value << " "; }
+
+void ForEach(const std::vector<int> &values, void (*func)(int)) {
+  for (int value : values) {
+    func(value);
+  }
+  std::cout << std::endl;
+}
