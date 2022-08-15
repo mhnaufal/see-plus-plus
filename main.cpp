@@ -57,6 +57,7 @@ int main() {
   call_func(313);
   std::vector<int> values = {1, 3, 5, 2, 8};
   ForEach(values, PrintValue);
+  lambdas(values);
   std::cout << "+-----------------------------------+" << std::endl
             << std::endl;
 

@@ -1,6 +1,7 @@
 #ifndef SHE_PLUS_PLUS_MODERN_H
 #define SHE_PLUS_PLUS_MODERN_H
 
+#include <functional>
 #include <optional>
 #include <vector>
 
@@ -20,5 +21,6 @@ void print_bird(Bird bird);
 void hello_func_pointer(int num);
 void PrintValue(int value);
 void ForEach(const std::vector<int> &values, void (*func)(int));
+int lambdas(const std::vector<int> &values);
 
 #endif // SHE_PLUS_PLUS_MODERN_H

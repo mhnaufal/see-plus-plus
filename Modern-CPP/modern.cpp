@@ -67,3 +67,10 @@ void ForEach(const std::vector<int> &values, void (*func)(int)) {
   }
   std::cout << std::endl;
 }
+
+int lambdas(const std::vector<int> &values) {
+  auto iterators = std::find_if(values.begin(), values.end(),
+                                [](int value) { return value > 5; });
+  std::cout << "lambda: " << *iterators << std::endl;
+  return *iterators;
+}
