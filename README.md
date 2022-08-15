@@ -311,9 +311,20 @@ Some famous C++ test libraries are: **Google Test**, **Doctest**, and **Catch2**
    function, the same goes for when we return an object from a function, we need to copy it again!
    Thus, instead of copy the object why we don't just move it? Here's where move semantic comes in.
 
-7. **Function Pointer**
+7. **Function Pointer** and **Lambda**
    It's just a function that can be inputted as a value of a variable or a function that ack as a argument/parameter for
    another function. The type `void(*TypeName)(ParametersType)`
+
+   Lambda is the way we define a function without defining function(?). Lambda
+   syntax [consist of](https://en.cppreference.com/w/cpp/language/lambda):
+   `[captures]{body}`
+    - **captures** = it's like in PHP anonymous function. TL;DR bring variable outside this scope into this scope
+        - **=** = pass the variable by value
+        - **&** = pass the variable by reference
+    - **params** = parameters
+    - **tparams** = template parameters
+    - **body** = function body
+    - **specifiers** = sequence of specifiers
 
 99. **Other Interesting In Modern C++**
 
