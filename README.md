@@ -326,6 +326,12 @@ Some famous C++ test libraries are: **Google Test**, **Doctest**, and **Catch2**
     - **body** = function body
     - **specifiers** = sequence of specifiers
 
+8. **Template**
+   The compiler write code for programmer based on rules define inside the
+   template. [Nice reads](https://stackoverflow.com/questions/8752837/undefined-reference-to-template-class-constructor)
+   about template definition and declaration that can't be seperated in different translation unit. Template **doesn't
+   exist** until we **called** it. Meta programming.
+
 99. **Other Interesting In Modern C++**
 
 - **any**: It's a data type, but more like ANY type.
