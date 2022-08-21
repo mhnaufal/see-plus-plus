@@ -1,8 +1,6 @@
 #include "modern.h"
 #include <any>
 #include <chrono>
-#include <iostream>
-#include <optional>
 
 /**
  * I know the code in here it's not completely the modern C++ (>= C++11) syntax,

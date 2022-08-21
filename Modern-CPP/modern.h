@@ -2,6 +2,7 @@
 #define SHE_PLUS_PLUS_MODERN_H
 
 #include <functional>
+#include <iostream>
 #include <optional>
 #include <vector>
 
@@ -22,5 +23,10 @@ void hello_func_pointer(int num);
 void PrintValue(int value);
 void ForEach(const std::vector<int> &values, void (*func)(int));
 int lambdas(const std::vector<int> &values);
+
+// template
+template <typename T> void PrintData(T data) {
+  std::cout << "template: " << data << std::endl;
+}
 
 #endif // SHE_PLUS_PLUS_MODERN_H
