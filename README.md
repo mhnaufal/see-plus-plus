@@ -332,6 +332,18 @@ Some famous C++ test libraries are: **Google Test**, **Doctest**, and **Catch2**
    about template definition and declaration that can't be seperated in different translation unit. Template **doesn't
    exist** until we **called** it. Meta programming.
 
+9. **const** and **mutable**
+   **const** == promise. And you should keep the promise.
+   ```c++
+   const int *ptr = new int;
+   *ptr = 3; // can't do this
+   ```
+
+   ```c++
+   int *const ptr = new int;
+   ptr = (int*)&newPtr; // can't do this
+   ```
+
 99. **Other Interesting In Modern C++**
 
 - **any**: It's a data type, but more like ANY type.
