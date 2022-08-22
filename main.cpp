@@ -36,6 +36,7 @@ int main() {
   // enum
   std::cout << "enum token ";
   print_token_type();
+  std::cout << std::endl;
   std::cout << "+-----------------------------------+" << std::endl
             << std::endl;
 
@@ -51,6 +52,7 @@ int main() {
   };
   Bird::fly(bird);
   print_bird(bird);
+  std::cout << std::endl;
 
   // function pointer
   auto call_func = hello_func_pointer;
@@ -59,10 +61,16 @@ int main() {
   std::vector<int> values = {1, 3, 5, 2, 8};
   ForEach(values, PrintValue);
   lambdas(values);
+  std::cout << std::endl;
 
   // template
   PrintData<int>(300);
   PrintData<float>(30.3);
+  std::cout << std::endl;
+
+  // const
+  ConstKeyword();
+  std::cout << std::endl;
   std::cout << "+-----------------------------------+" << std::endl
             << std::endl;
 
@@ -87,6 +95,7 @@ int main() {
   /* Nodeflux */
   std::cout << "[NODEFLUX]" << std::endl;
   MsgPackMain();
+  std::cout << std::endl;
   std::cout << "+-----------------------------------+" << std::endl
             << std::endl;
   return 0;

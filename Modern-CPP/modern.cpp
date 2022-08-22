@@ -72,3 +72,19 @@ int lambdas(const std::vector<int> &values) {
   std::cout << "lambda: " << *iterators << std::endl;
   return *iterators;
 }
+
+void ConstKeyword() {
+  const int MAX_AGE = 100;
+  int *ptr = new int;
+
+  // we can't modify the value of the pointer
+  // const int *ptr = new int;
+
+  // we can't modify the pointer
+  // int *const ptr = new int;
+
+  *ptr = 2; // change the value
+  std::cout << "const ptr: " << ptr << std::endl;
+  ptr = (int *)&MAX_AGE; // change the pointer
+  std::cout << "const ptr: " << ptr << std::endl;
+}

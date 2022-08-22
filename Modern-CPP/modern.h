@@ -29,4 +29,7 @@ template <typename T> void PrintData(T data) {
   std::cout << "template: " << data << std::endl;
 }
 
+// const
+void ConstKeyword();
+
 #endif // SHE_PLUS_PLUS_MODERN_H
