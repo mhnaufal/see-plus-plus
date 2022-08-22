@@ -14,12 +14,13 @@ add_subdirectory(Modern-CPP)
 add_subdirectory(Object-Oriented-CPP)
 add_subdirectory(Pointer-CPP)
 add_subdirectory(Testing-CPP)
+add_subdirectory(Nodeflux)
 
-target_include_directories(${PROJECT_NAME} PUBLIC Basic-CPP Modern-CPP Object-Oriented-CPP Pointer-CPP Testing-CPP) # we can add this so that we can use #include <folder> instead of #include "folder"
+target_include_directories(${PROJECT_NAME} PUBLIC Basic-CPP Modern-CPP Object-Oriented-CPP Pointer-CPP Testing-CPP Nodeflux) # we can add this so that we can use #include <folder> instead of #include "folder"
 
-target_link_directories(${PROJECT_NAME} PRIVATE Basic-CPP Modern-CPP Object-Oriented-CPP Pointer-CPP Testing-CPP) # link this root folder into the given sub folder
+target_link_directories(${PROJECT_NAME} PRIVATE Basic-CPP Modern-CPP Object-Oriented-CPP Pointer-CPP Testing-CPP Nodeflux) # link this root folder into the given sub folder
 
-target_link_libraries(${PROJECT_NAME} basic modern oop pointer test) # link this project with the given library name
+target_link_libraries(${PROJECT_NAME} basic modern oop pointer test nodeflux) # link this project with the given library name
 
 # Prepare doctest for other targets to use
 #find_package(doctest REQUIRED)

@@ -2,6 +2,7 @@
 #include <basic.h> // we can use this because we use `target_include_directories` in root CMakeLists.txt
 #include <iostream>
 #include <modern.h>
+#include <nodeflux.h>
 #include <oop.h>
 #include <pointer.h>
 
@@ -80,6 +81,12 @@ int main() {
   std::cout << "[POINTER]" << std::endl;
   basic_pointer();
   play_pokemon();
+  std::cout << "+-----------------------------------+" << std::endl
+            << std::endl;
+
+  /* Nodeflux */
+  std::cout << "[NODEFLUX]" << std::endl;
+  MsgPackMain();
   std::cout << "+-----------------------------------+" << std::endl
             << std::endl;
   return 0;

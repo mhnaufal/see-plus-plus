@@ -1,0 +1,6 @@
+#ifndef SHE_PLUS_PLUS_NODEFLUX_H
+#define SHE_PLUS_PLUS_NODEFLUX_H
+
+void MsgPackMain();
+
+#endif // SHE_PLUS_PLUS_NODEFLUX_H
