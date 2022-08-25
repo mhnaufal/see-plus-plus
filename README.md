@@ -336,13 +336,16 @@ Some famous C++ test libraries are: **Google Test**, **Doctest**, and **Catch2**
    **const** == promise. And you should keep the promise.
    ```c++
    const int *ptr = new int;
-   *ptr = 3; // can't do this
+   *ptr = 3; // can't do this. cannot change the value of the pointer
    ```
 
    ```c++
    int *const ptr = new int;
-   ptr = (int*)&newPtr; // can't do this
+   ptr = (int*)&newPtr; // can't do this. cannot change the "pointer" itself
    ```
+
+   **mutable** = allow us to make a change on a variable/data member inside a const function member, where in normal
+   case, we can't
 
 99. **Other Interesting In Modern C++**
 
