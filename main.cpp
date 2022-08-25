@@ -68,8 +68,10 @@ int main() {
   PrintData<float>(30.3);
   std::cout << std::endl;
 
-  // const
+  // const and mutable
   ConstKeyword();
+  std::cout << std::endl;
+  MutableKeyword();
   std::cout << std::endl;
   std::cout << "+-----------------------------------+" << std::endl
             << std::endl;

@@ -29,7 +29,27 @@ template <typename T> void PrintData(T data) {
   std::cout << "template: " << data << std::endl;
 }
 
-// const
+// const and mutable
 void ConstKeyword();
+
+class Entity {
+private:
+  std::string m_Name;
+  mutable int m_DebugCount = 0;
+
+public:
+  // the "&" before the function name, mark that this function will return by
+  // reference. The "const" after the function name indicated that this function
+  // will not change any value and when get called, this function will also not
+  // change any value
+  [[nodiscard]] const std::string &GetName() const {
+    m_DebugCount++;
+    return m_Name;
+  }
+
+  int GetDebugCount() const { return m_DebugCount; }
+};
+
+void MutableKeyword();
 
 #endif // SHE_PLUS_PLUS_MODERN_H

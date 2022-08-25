@@ -84,7 +84,12 @@ void ConstKeyword() {
   // int *const ptr = new int;
 
   *ptr = 2; // change the value
-  std::cout << "const ptr: " << ptr << std::endl;
+  std::cout << "const keyword: " << ptr << std::endl;
   ptr = (int *)&MAX_AGE; // change the pointer
-  std::cout << "const ptr: " << ptr << std::endl;
+  std::cout << "const keyword: " << ptr << std::endl;
+}
+
+void MutableKeyword() {
+  const Entity ent;
+  std::cout << "mutable keyword: " << ent.GetName() << " #" << ent.GetDebugCount() << std::endl;
 }
