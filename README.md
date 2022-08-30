@@ -155,6 +155,12 @@ Maybe there's another options, but all I know for now are those 3 options.
    on it.
    If we specify the first value of enum to any number except 0, the rest of the elements will increment from it.
 
+6. **Union**
+   Union is like struct, but one thing to differentiate is that union size based on the largest element inside it, where
+   struct size based on sum of total of the element
+   size. [explanation](https://stackoverflow.com/questions/346536/difference-between-a-structure-and-a-union)
+   Union can only hold one same data type "type" at a time (go straight to the code).
+
 ---
 
 ### 3️⃣ Object Oriented C++
