@@ -37,6 +37,11 @@ int main() {
   std::cout << "enum token ";
   print_token_type();
   std::cout << std::endl;
+
+  // union
+  std::cout << "union ";
+  dataType();
+  std::cout << std::endl;
   std::cout << "+-----------------------------------+" << std::endl
             << std::endl;
 

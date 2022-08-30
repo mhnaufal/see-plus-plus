@@ -32,4 +32,6 @@ enum TOKEN_TYPE : unsigned int {
 
 void print_token_type();
 
+void dataType();
+
 #endif // SHE_PLUS_PLUS_BASIC_H

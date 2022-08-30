@@ -100,3 +100,22 @@ void print_token_type() {
   }
   std::cout << std::endl;
 }
+
+void dataType() {
+  union S {
+    int x;
+    float y;
+    long z;
+    double a;
+  };
+
+  S uni_s = {123}; // filling in the s.x make s.x is the active member of the
+                   // union. Because long is the same as int, so long z also get
+                   // the same value as int x
+  std::cout << "x: " << uni_s.x << " y: " << uni_s.y << " z: " << uni_s.z
+            << " a: " << uni_s.a << std::endl;
+
+  uni_s.y = 32.1; // now s.y is the active member of x
+  std::cout << "x: " << uni_s.x << " y: " << uni_s.y << " z: " << uni_s.z
+            << " a: " << uni_s.a << std::endl;
+}
