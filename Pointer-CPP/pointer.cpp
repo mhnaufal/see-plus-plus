@@ -1,5 +1,6 @@
 #include "pointer.h"
 #include <iostream>
+#include <memory>
 #include <utility>
 
 void basic_pointer() {
@@ -100,3 +101,19 @@ public:
     return this->pos_x;
   }
 };
+
+class Entity {
+public:
+  Entity() { std::cout << "Entity created!" << std::endl; }
+  ~Entity() { std::cout << "Entity destroyed!" << std::endl; }
+  void PrintEntity() { std::cout << "entity: " << this << std::endl; }
+};
+
+void smartPointer() {
+  {
+    std::unique_ptr<Entity> entity1 = std::make_unique<Entity>();
+    entity1->PrintEntity();
+    // we can't copy unique_pointer
+    // std::unique_ptr<Entity> entity2 = entity1;
+  }
+}

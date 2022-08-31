@@ -34,12 +34,12 @@ int main() {
   std::cout << std::endl;
 
   // enum
-  std::cout << "enum token ";
+  std::cout << "enum token: \n";
   print_token_type();
   std::cout << std::endl;
 
   // union
-  std::cout << "union ";
+  std::cout << "union: \n";
   dataType();
   std::cout << std::endl;
   std::cout << "+-----------------------------------+" << std::endl
@@ -94,8 +94,15 @@ int main() {
 
   /* POINTER */
   std::cout << "[POINTER]" << std::endl;
+  // raw pointer
+  std::cout << "raw pointer: \n";
   basic_pointer();
   play_pokemon();
+
+  // smart pointer
+  std::cout << "smart pointer: \n";
+  smartPointer();
+  std::cout << std::endl;
   std::cout << "+-----------------------------------+" << std::endl
             << std::endl;
 
