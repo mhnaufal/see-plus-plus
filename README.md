@@ -310,9 +310,9 @@ Some famous C++ test libraries are: **Google Test**, **Doctest**, and **Catch2**
 6. **Move Semantic**
    Before dive into move semantic, understand [**lvalue** and **rvalue** first!](#2%EF%B8%8F%E2%83%A3-basic-c)
 
-   **Why we need move semantic?**
+   _Why we need move semantic?_
 
-   we do a lot of object passing, but we don't want to copy the object, we just want to
+   We do a lot of object passing, but we don't want to copy the object, we just want to
    pass the ownership of the object. Imagine we pass an object to a function, we need to copy the object inside the
    function, the same goes for when we return an object from a function, we need to copy it again!
    Thus, instead of copy the object why we don't just move it? Here's where move semantic comes in.
@@ -352,6 +352,14 @@ Some famous C++ test libraries are: **Google Test**, **Doctest**, and **Catch2**
 
    **mutable** = allow us to make a change on a variable/data member inside a const function member, where in normal
    case, we can't
+
+10. **Smart Pointer**
+    - **Unique Pointer**
+      Scope pointer, when unique pointer goes out of scope it will get destroyed. We can't copy a unique pointer. 
+    - **Shared Pointer**
+      
+    - **Weak Pointer**
+      
 
 99. **Other Interesting In Modern C++**
 
