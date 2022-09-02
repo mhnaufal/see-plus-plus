@@ -355,11 +355,12 @@ Some famous C++ test libraries are: **Google Test**, **Doctest**, and **Catch2**
 
 10. **Smart Pointer**
     - **Unique Pointer**
-      Scope pointer, when unique pointer goes out of scope it will get destroyed. We can't copy a unique pointer. 
+      Scope pointer, when unique pointer goes out of scope it will get destroyed. We can't copy a unique pointer.
     - **Shared Pointer**
-      
+      Use something called **reference counting**. When there is a new pointer that references a data, the number of
+      reference count will increase.
     - **Weak Pointer**
-      
+
 
 99. **Other Interesting In Modern C++**
 
