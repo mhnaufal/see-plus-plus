@@ -111,9 +111,23 @@ public:
 
 void smartPointer() {
   {
+    /* unique pointer */
     std::unique_ptr<Entity> entity1 = std::make_unique<Entity>();
+    std::cout << "unique pointer: ";
     entity1->PrintEntity();
     // we can't copy unique_pointer
     // std::unique_ptr<Entity> entity2 = entity1;
+
+    /* shared pointer */
+    {
+      std::shared_ptr<Entity> entity3;
+      {
+        std::shared_ptr<Entity> entity2 = std::make_shared<Entity>();
+        entity3 = entity2;
+        std::cout << "shared pointer 2: " << entity2.use_count() << std::endl;
+      }
+      // entity2 get out of scope, so the reference count decrease by 1
+      std::cout << "shared pointer 3: " << entity3.use_count() << std::endl;
+    }
   }
 }
