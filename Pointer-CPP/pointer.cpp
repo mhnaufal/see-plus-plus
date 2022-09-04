@@ -118,6 +118,8 @@ void smartPointer() {
     // we can't copy unique_pointer
     // std::unique_ptr<Entity> entity2 = entity1;
 
+    std::cout << std::endl;
+
     /* shared pointer */
     {
       std::shared_ptr<Entity> entity3;
@@ -128,6 +130,20 @@ void smartPointer() {
       }
       // entity2 get out of scope, so the reference count decrease by 1
       std::cout << "shared pointer 3: " << entity3.use_count() << std::endl;
+    }
+
+    std::cout << std::endl;
+
+    /* weak pointer */
+    {
+      std::shared_ptr<Entity> entity2 = std::make_shared<Entity>();
+      {
+        std::weak_ptr<Entity> entity4 = entity2;
+        std::cout << "weak pointer 4: " << entity4.use_count() << std::endl;
+        std::cout << "shared pointer 2: " << entity2.use_count()
+                  << std::endl; // reference count doesn't get increased
+      }
+      std::cout << "shared pointer 2: " << entity2.use_count() << std::endl;
     }
   }
 }
