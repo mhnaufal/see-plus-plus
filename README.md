@@ -360,6 +360,7 @@ Some famous C++ test libraries are: **Google Test**, **Doctest**, and **Catch2**
       Use something called **reference counting**. When there is a new pointer that references a data, the number of
       reference count will increase.
     - **Weak Pointer**
+      It works the same way as the shared pointer, except weak pointer *doesn't increase** the reference count.
 
 
 99. **Other Interesting In Modern C++**
