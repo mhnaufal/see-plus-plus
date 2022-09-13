@@ -18,3 +18,17 @@ void MsgPackMain() {
   msgpack::object_handle oh = msgpack::unpack(sbuf.data(), sbuf.size());
   std::cout << "msgpack vector data: " << oh.get() << std::endl;
 }
+
+void libasyikIntroduction() {
+  /*Initiate server*/
+  auto asyik_server = asyik::make_service();
+  auto server = asyik::make_http_server(asyik_server, "127.0.0.1", 8000);
+
+  /*Serve HTTP request*/
+  server->on_http_request("/", "GET", [](auto req, auto args) {
+    req->response.body = "Hello mom!";
+    req->response.result(200);
+  });
+
+  asyik_server->run();
+}
