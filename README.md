@@ -376,6 +376,14 @@ Some famous C++ test libraries are: **Google Test**, **Doctest**, and **Catch2**
 
 ---
 
+### 6️⃣ Pytorch C++
+
+---
+
+### 6️⃣ libasyik
+
+---
+
 ## 💡 Acknowledgments
 
 Thanks to these awesome resources:

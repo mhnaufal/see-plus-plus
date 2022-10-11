@@ -6,15 +6,10 @@ set(CMAKE_CXX_STANDARD 17) # which c++ version to use
 set(CMAKE_CXX_FLAGS "-Wall")
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+set(CMAKE_PREFIX_PATH "/usr/include/libtorch")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${TORCH_CXX_FLAGS}")
 
 add_executable(${PROJECT_NAME} main.cpp) # the exeexecutable name
-
-add_subdirectory(Basic-CPP) # connect other directory within this root directory
-add_subdirectory(Modern-CPP)
-add_subdirectory(Object-Oriented-CPP)
-add_subdirectory(Pointer-CPP)
-add_subdirectory(Testing-CPP)
-add_subdirectory(Nodeflux)
 
 target_include_directories(${PROJECT_NAME} PUBLIC Basic-CPP Modern-CPP Object-Oriented-CPP Pointer-CPP Testing-CPP Nodeflux) # we can add this so that we can use #include <folder> instead of #include "folder"
 
@@ -32,28 +27,42 @@ target_link_libraries(${PROJECT_NAME} basic modern oop pointer test nodeflux) # 
 #include_directories(Testing-CPP)
 
 find_package(Boost COMPONENTS context fiber date_time REQUIRED)
-if(Boost_FOUND)
+if (Boost_FOUND)
     target_include_directories(${PROJECT_NAME} PUBLIC ${Boost_INCLUDE_DIR})
     target_link_libraries(${PROJECT_NAME} Boost::fiber Boost::context Boost::date_time)
-endif()
+endif ()
 
 find_package(libasyik)
-if(libasyik_FOUND)
+if (libasyik_FOUND)
     target_include_directories(${PROJECT_NAME} PUBLIC ${libasyik_INCLUDE_DIR})
     target_link_libraries(${PROJECT_NAME} libasyik)
-endif()
+endif ()
 
 find_package(SOCI REQUIRED)
-if(SOCI_FOUND)
+if (SOCI_FOUND)
     target_include_directories(${PROJECT_NAME} PUBLIC /usr/include/postgresql)
     target_include_directories(${PROJECT_NAME} PUBLIC /usr/local/include/soci)
     target_include_directories(${PROJECT_NAME} PUBLIC /usr/local/include/soci/postgresql)
     target_include_directories(${PROJECT_NAME} PUBLIC /usr/local/include/soci/sqlite3)
     target_link_libraries(${PROJECT_NAME} SOCI::soci_core SOCI::soci_postgresql SOCI::soci_sqlite3)
-endif()
+endif ()
 
 find_package(Threads REQUIRED)
 target_link_libraries(${PROJECT_NAME} Threads::Threads)
 
 find_package(OpenSSL REQUIRED)
 target_link_libraries(${PROJECT_NAME} OpenSSL::SSL)
+
+#list(APPEND CMAKE_PREFIX_PATH "/usr/include/libtorch")
+#find_package(Torch REQUIRED)
+#include_directories("${TORCH_INCLUDE_DIRS}")
+#target_include_directories(${PROJECT_NAME} PUBLIC ${TORCH_INCLUDE_DIRS})
+#target_link_libraries(${PROJECT_NAME} ${TORCH_LIBRARIES})
+#set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 14)
+
+add_subdirectory(Basic-CPP) # connect other directory within this root directory
+add_subdirectory(Modern-CPP)
+add_subdirectory(Object-Oriented-CPP)
+add_subdirectory(Pointer-CPP)
+add_subdirectory(Testing-CPP)
+add_subdirectory(Nodeflux)

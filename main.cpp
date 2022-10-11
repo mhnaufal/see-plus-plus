@@ -108,10 +108,12 @@ int main() {
 
   /* Nodeflux */
   std::cout << "[NODEFLUX]" << std::endl;
-  MsgPackMain();
+//  MsgPackMain();
   std::cout << std::endl;
 
 //  libasyikIntroduction();
+
+//  pytorchCppFrontend();
   std::cout << "+-----------------------------------+" << std::endl
             << std::endl;
 //  return 0;

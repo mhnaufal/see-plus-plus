@@ -8,4 +8,6 @@ void MsgPackMain();
 
 void libasyikIntroduction();
 
+void pytorchCppFrontend();
+
 #endif // SHE_PLUS_PLUS_NODEFLUX_H

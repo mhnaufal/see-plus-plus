@@ -3,6 +3,9 @@
 #include <msgpack.hpp>
 #include <string>
 #include <vector>
+//#include <libtorch/include/torch/csrc/api/include/torch/torch.h>
+//#include <torch/torch.h>
+//#include <torch/script.h>
 
 void MsgPackMain() {
   std::cout << "msgpack version: " << MSGPACK_VERSION << std::endl;
@@ -32,3 +35,8 @@ void libasyikIntroduction() {
 
   asyik_server->run();
 }
+
+//void pytorchCppFrontend() {
+//  torch::Tensor tensor = torch::eye(3);
+//  std::cout << tensor << std::endl;
+//}
