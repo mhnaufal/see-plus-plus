@@ -416,6 +416,12 @@ _done_
 
 ---
 
+### 6️⃣ pybind11
+
+Make sure you have installed the pybind11 locally! [How?](https://pybind11.readthedocs.io/en/stable/compiling.html)
+
+---
+
 ## 💡 Acknowledgments
 
 Thanks to these awesome resources:

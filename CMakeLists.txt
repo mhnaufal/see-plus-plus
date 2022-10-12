@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.10) # specify the minimum version of cmake to r
 project(she-plus-plus) # name of the project
 
 set(CMAKE_CXX_STANDARD 17) # which c++ version to use
-set(CMAKE_CXX_FLAGS "-Wall")
+set(CMAKE_CXX_FLAGS "-Wall -shared -fPIC -I/usr/include/python3.8 -lpython3.8")
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_PREFIX_PATH "~/temp/libtorch")
@@ -67,10 +67,18 @@ target_link_libraries(${PROJECT_NAME} OpenSSL::SSL)
 #################
 # Libtorch #
 #################
-list(APPEND CMAKE_PREFIX_PATH "~/temp/libtorch")
-find_package(Torch REQUIRED)
-target_link_libraries(${PROJECT_NAME} ${TORCH_LIBRARIES})
-set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 17)
+#list(APPEND CMAKE_PREFIX_PATH "~/temp/libtorch")
+#find_package(Torch REQUIRED)
+#target_link_libraries(${PROJECT_NAME} ${TORCH_LIBRARIES})
+#set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 14)
+
+#################
+# pybind11 #
+#################
+#list(APPEND CMAKE_PREFIX_PATH "~/temp/pybind11")
+find_package(pybind11 REQUIRED)
+#add_subdirectory(pybind11)
+pybind11_add_module(example example.cpp)
 
 add_subdirectory(Basic-CPP) # connect other directory within this root directory
 add_subdirectory(Modern-CPP)
