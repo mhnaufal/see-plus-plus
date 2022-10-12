@@ -14,4 +14,9 @@ std::ostream &operator<<(std::ostream &os, const Enemy &enemy) {
             << " spawn: " << enemy.get_spawn_time() << std::endl;
 }
 
-auto& singleton = Singleton::GetInstance();
+auto &singleton = Singleton::GetInstance();
+
+void oopPlayground() {
+  auto boss_enemy = BossEnemy(313);
+  boss_enemy.print("Luh");
+}

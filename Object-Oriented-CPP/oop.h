@@ -5,10 +5,24 @@
 
 /* abstract class */
 class IEnemy {
+private:
+  std::string m_name;
+
 public:
-  virtual void print() const = 0; // pure virtual function
-  virtual void print_all()
-      const; // "just" virtual function, we still need to create the definition
+  virtual void print(std::string name) const = 0; // pure virtual function
+  // "only" a virtual function, we still need to create the definition
+  //  virtual void print_all() const;
+};
+
+class BossEnemy : IEnemy {
+public:
+  explicit BossEnemy(const int power) {
+    std::cout << "Boss power: " << power << std::endl;
+  }
+
+  void print(std::string name) const override {
+    std::cout << "I, " << name << ", am your fucking Boss!" << std::endl;
+  }
 };
 
 class Enemy {
@@ -54,5 +68,7 @@ public:
     return instance;
   }
 };
+
+void oopPlayground();
 
 #endif // SHE_PLUS_PLUS_OOP_H

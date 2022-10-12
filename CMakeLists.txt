@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.10) # specify the minimum version of cmake to r
 project(she-plus-plus) # name of the project
 
 set(CMAKE_CXX_STANDARD 17) # which c++ version to use
-set(CMAKE_CXX_FLAGS "-Wall -shared -fPIC -I/usr/include/python3.8 -lpython3.8")
+set(CMAKE_CXX_FLAGS "-Wall -I/usr/include/python3.8 -lpython3.8")
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_PREFIX_PATH "~/temp/libtorch")
