@@ -9,6 +9,9 @@ borrowed from C++
 
 ### 1️⃣ Build C++
 
+<details>
+<summary>Build C++</summary>
+
 There are 3 options to compile and run C++ file(s)
 
 - Using command line
@@ -22,11 +25,11 @@ Maybe there's another options, but all I know for now are those 3 options.
    To build C++ file using CMake, create a `CMakeLists.txt` inside the top level of the directory.
    After that run
 
-   ```cmake
+   ```shell
    cmake [options] -S <path-to-source> -B <path-to-build>
    ```
 
-   ```cmake
+   ```shell
    cmake -S . -B build
    ```
 
@@ -46,7 +49,7 @@ Maybe there's another options, but all I know for now are those 3 options.
    the
    result inside this directory
 
-   ```cmake
+   ```shell
    cmake ..
    ```
 
@@ -80,9 +83,14 @@ Maybe there's another options, but all I know for now are those 3 options.
    **In the sub folder CMakeLists.txt** add this:
     - `add_library()`
 
+</details>
+
 ---
 
 ### 2️⃣ Basic C++
+
+<details>
+<summary>Basic C++</summary>
 
 1. **C++ Term**
 
@@ -161,9 +169,14 @@ Maybe there's another options, but all I know for now are those 3 options.
    size. [explanation](https://stackoverflow.com/questions/346536/difference-between-a-structure-and-a-union)
    Union can only hold one same data type "type" at a time (go straight to the code).
 
+</details>
+
 ---
 
 ### 3️⃣ Object Oriented C++
+
+<details>
+<summary>Object Oriented C++</summary>
 
 1. **Class**
    In other OOP programming languages, we call functions inside a class as **methods**, but here in C++ we called it **
@@ -222,9 +235,14 @@ Maybe there's another options, but all I know for now are those 3 options.
     - **interface** = In C++, we can create an interface by defining a class with **no data members** and all function
       members are **virtual function**
 
+</details>
+
 ---
 
 ### 4️⃣ Testing C++
+
+<details>
+<summary>Testing C++</summary>
 
 Some famous C++ test libraries are: **Google Test**, **Doctest**, and **Catch2**
 
@@ -256,9 +274,14 @@ Some famous C++ test libraries are: **Google Test**, **Doctest**, and **Catch2**
 
 3. **Google Test**
 
+</details>
+
 ---
 
 ### 5️⃣ Modern C++
+
+<details>
+<summary>Modern C++</summary>
 
 1. **Map**
 
@@ -318,7 +341,8 @@ Some famous C++ test libraries are: **Google Test**, **Doctest**, and **Catch2**
    Thus, instead of copy the object why we don't just move it? Here's where move semantic comes in.
 
 7. **Function Pointer** and **Lambda**
-   It's just a function that can be inputted as a value of a variable or a function that ack as a argument/parameter for
+   It's just a function that can be inputted as a value of a variable or a function that ack as an argument/parameter
+   for
    another function. The type `void(*TypeName)(ParametersType)`
 
    Lambda is the way we define a function without defining function(?). Lambda
@@ -370,17 +394,25 @@ Some famous C++ test libraries are: **Google Test**, **Doctest**, and **Catch2**
 - **chrono**: Benchmark our C++ code.
 - **constexpr**: Use this as a macro instead of `#define`
 
+</details>
+
 ---
 
 ### 6️⃣ OpenCV C++
 
+_already done in another repo_
+
 ---
 
-### 6️⃣ Pytorch C++
+### 6️⃣ Libtorch C++
+
+_why this one always error in this repo?_
 
 ---
 
 ### 6️⃣ libasyik
+
+_done_
 
 ---
 
