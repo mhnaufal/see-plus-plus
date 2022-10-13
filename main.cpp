@@ -108,8 +108,8 @@ int main() {
 
   /* Nodeflux */
   std::cout << "[NODEFLUX]" << std::endl;
-  //  msgPackIntroduction();
-  //  std::cout << std::endl;
+  msgPackIntroduction();
+  std::cout << std::endl;
 
   //  libasyikIntroduction();
   //  std::cout << std::endl;

@@ -422,6 +422,15 @@ Make sure you have installed the pybind11 locally! [How?](https://pybind11.readt
 
 ---
 
+### 6️⃣ Msgpack
+
+A binary serialization which let us exchange data among different programming languages. It's like JSON and ~Protobuf~,
+but it's faster and smaller! [Homepage](https://msgpack.org/). Small integers are encoded into only a single byte.
+
+To run msgpack, comment all other codes first!
+
+---
+
 ## 💡 Acknowledgments
 
 Thanks to these awesome resources:

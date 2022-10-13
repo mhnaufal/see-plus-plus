@@ -3,6 +3,7 @@
 
 #include "libasyik/http.hpp"
 #include "libasyik/service.hpp"
+#include <cassert>
 #include <iostream>
 #include <msgpack.hpp>
 #include <string>

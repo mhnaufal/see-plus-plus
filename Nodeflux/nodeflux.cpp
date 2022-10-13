@@ -3,16 +3,26 @@
 void msgPackIntroduction() {
   std::cout << "msgpack version: " << MSGPACK_VERSION << std::endl;
 
-  // create a data in the server
-  std::vector<std::string> vec1 = {"Hello", "mom!"};
+  // create a data to be serialized
+  msgpack::type::tuple<int, bool, std::string> src(1, true, "example");
 
-  // serialize the data before send it to client
-  msgpack::sbuffer sbuf;
-  msgpack::pack(sbuf, vec1);
+  // serialize the data into a buffer
+  std::stringstream buffer;
+  msgpack::pack(buffer, src);
+  std::cout << "buffer => " << buffer.str() << " src => " << src.size()
+            << std::endl;
 
-  // when the data is received in client, deserialize it
-  msgpack::object_handle oh = msgpack::unpack(sbuf.data(), sbuf.size());
-  std::cout << "msgpack vector data: " << oh.get() << std::endl;
+  // send the buffer
+  buffer.seekg(0);
+
+  // deserialize the buffer into msgpack::object instance
+  std::string str = buffer.str();
+  std::cout << "deserialize => " << str << std::endl;
+
+  msgpack::object_handle oh = msgpack::unpack(str.data(), str.size());
+  msgpack::object deserialized = oh.get();
+  std::cout << "real des => " << deserialized << std::endl;
+  assert((deserialized.as<decltype(src)>()) == src);
 }
 
 void libasyikIntroduction() {
@@ -28,18 +38,3 @@ void libasyikIntroduction() {
 
   asyik_server->run();
 }
-
-// void pytorchCppFrontend() {
-//   torch::Tensor tensor = torch::eye(3);
-//   std::cout << tensor << std::endl;
-// }
-
-// int add(int i, int j) {
-//   return i + j;
-// }
-//
-// PYBIND11_MODULE(example_module, handle) {
-//   handle.doc() = "pybind11 example plugin"; // optional module docstring
-//
-//   handle.def("add", &add, "A function that adds two numbers");
-// }

@@ -80,6 +80,14 @@ find_package(pybind11 REQUIRED)
 #add_subdirectory(pybind11)
 pybind11_add_module(example example.cpp)
 
+#################
+# msgpack #
+#################
+find_package(msgpack REQUIRED)
+if (msgpack_FOUND)
+    target_link_libraries(${PROJECT_NAME} msgpackc-cxx)
+endif ()
+
 add_subdirectory(Basic-CPP) # connect other directory within this root directory
 add_subdirectory(Modern-CPP)
 add_subdirectory(Object-Oriented-CPP)
