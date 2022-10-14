@@ -99,7 +99,8 @@ Maybe there's another options, but all I know for now are those 3 options.
       other conditional preprocessing**
     - **Class** and **Struct**
       `class` and `struct` in C++ define a **new type**. Use `struct` as a data container without any function within,
-      and use `class` as data container with function. Although we can create function inside struct.
+      and use `class` as data container with function. Although we can create function inside struct. We can have
+      inheritance in struct and class! Like, WTF!
     - **Static**
       `static` functions and data are functions and data that are only visible within the same translation unit. In C++
       class, we use `::` double colon to access them.
