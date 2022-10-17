@@ -124,8 +124,8 @@ int main() {
   zeroMQMultipartMessage();
   std::cout << std::endl;
 
-  zeroMQReqRep();
-  std::cout << std::endl;
+//  zeroMQReqRep();
+//  std::cout << std::endl;
   std::cout << "+-----------------------------------+" << std::endl
             << std::endl;
   //  return 0;

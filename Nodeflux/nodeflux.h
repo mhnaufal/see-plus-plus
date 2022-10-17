@@ -7,10 +7,10 @@
 #include <iostream>
 #include <msgpack.hpp>
 #include <string>
+#include <unistd.h>
 #include <vector>
 #include <zmq.hpp>
 #include <zmq_addon.hpp>
-#include <unistd.h>
 
 void msgPackIntroduction();
 

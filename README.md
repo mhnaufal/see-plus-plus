@@ -401,42 +401,68 @@ Some famous C++ test libraries are: **Google Test**, **Doctest**, and **Catch2**
 
 ### 6️⃣ OpenCV C++
 
-_already done in another repo_
+_already done in another repo and installation flow already provided in the Dockerfile_
 
 ---
 
-### 6️⃣ Libtorch C++
+### 7️⃣ Libtorch C++
 
 _why this one always error in this repo?_
 
 ---
 
-### 6️⃣ libasyik
+### 8️⃣ libasyik
 
-_done_
+_already done in another repo and installation flow already provided in the Dockerfile_
 
 ---
 
-### 6️⃣ pybind11
+### 9️⃣ pybind11
 
 Make sure you have installed the pybind11 locally! [How?](https://pybind11.readthedocs.io/en/stable/compiling.html)
 
+Installation:
+
+- Download the pybind11 for C++
+- Create a build directory
+- `cmake --build .`
+- `cmake --install .`
+
+We can't include pybind directly into the main.cpp file, so we use another file (example.cpp) to handle the pybind. And
+also don't forget to run it using `pythpn3` or `ipython3`
+
+[pybind cmake references](https://github.com/pybind/cmake_example/blob/master/CMakeLists.txt)
+
 ---
 
-### 6️⃣ Msgpack
+### 1️⃣0️⃣ Msgpack
 
 A binary serialization which let us exchange data among different programming languages. It's like JSON and ~Protobuf~,
 but it's faster and smaller! [Homepage](https://msgpack.org/). Small integers are encoded into only a single byte.
 
-To run msgpack, comment all other codes first!
+To run msgpack, comments the pointer code section first
+
+Installation:
+
+- Clone the repo
+- cmake build and install
+- Update the cmake file!
+
+[Installation reference](https://github.com/msgpack/msgpack-c/tree/cpp_master#building-and-installing)
 
 ---
 
-### 6️⃣ ZeroMQ
+### 1️⃣1️⃣ ZeroMQ
 
 To use this library, install the [libzmq](https://github.com/zeromq/libzmq) and copy
 the [zmq.hpp](https://github.com/zeromq/cppzmq/blob/master/zmq.hpp) file to **/usr/include**, and add flag `zmq` to the
 cmake `target_link_libraries`
+
+Installation:
+
+- `sudo apt-get install libzmq3-dev`
+- Copy and paste the **zmq.h**, **zmq.hpp**, and **zmq_utils.hpp** to the **/usr/include/**
+- Update the cmake file!
 
 [Recommended video](https://www.youtube.com/watch?v=UrwtQfSbrOs)
 
