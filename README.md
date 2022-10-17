@@ -419,7 +419,8 @@ _already done in another repo and installation flow already provided in the Dock
 
 ### 9️⃣ pybind11
 
-Make sure you have installed the pybind11 locally! [How?](https://pybind11.readthedocs.io/en/stable/compiling.html)
+_Create a C++ codes that can be run as Python codes._ Make sure you have installed the pybind11
+locally! [How?](https://pybind11.readthedocs.io/en/stable/compiling.html)
 
 Installation:
 

@@ -19,3 +19,6 @@ print()
 
 print("example member function inside a class: " + str(example.ExampleClass(10).multiply(2)))
 print()
+
+print("example another function: " + str(example.multiply_two(3, 4)))
+print()
