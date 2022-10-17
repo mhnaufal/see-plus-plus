@@ -89,32 +89,42 @@ int main() {
   SmallEnemy sm(3, 9.9); // SmallEnemy only need to specify 2 arguments instead
                          // of 3 like Enemy
   std::cout << "small-enemy: " << sm << std::endl;
+  std::cout << std::endl;
+
+  oopPlayground();
+  std::cout << std::endl;
   std::cout << "+-----------------------------------+" << std::endl
             << std::endl;
 
   /* POINTER */
-  std::cout << "[POINTER]" << std::endl;
-  // raw pointer
-  std::cout << "raw pointer: \n";
-  basic_pointer();
-  play_pokemon();
-
-  // smart pointer
-  std::cout << "smart pointer: \n";
-  smartPointer();
-  std::cout << std::endl;
-  std::cout << "+-----------------------------------+" << std::endl
-            << std::endl;
+  //  std::cout << "[POINTER]" << std::endl;
+  //  // raw pointer
+  //  std::cout << "raw pointer: \n";
+  //  basic_pointer();
+  //  play_pokemon();
+  //
+  //  // smart pointer
+  //  std::cout << "smart pointer: \n";
+  //  smartPointer();
+  //  std::cout << std::endl;
+  //  std::cout << "+-----------------------------------+" << std::endl
+  //            << std::endl;
 
   /* Nodeflux */
   std::cout << "[NODEFLUX]" << std::endl;
-  msgPackIntroduction();
-  std::cout << std::endl;
+    msgPackIntroduction();
+    std::cout << std::endl;
 
   //  libasyikIntroduction();
   //  std::cout << std::endl;
 
-  oopPlayground();
+  zeroMQIntroduction();
+  std::cout << std::endl;
+
+  zeroMQMultipartMessage();
+  std::cout << std::endl;
+
+  zeroMQReqRep();
   std::cout << std::endl;
   std::cout << "+-----------------------------------+" << std::endl
             << std::endl;

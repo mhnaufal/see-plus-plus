@@ -432,6 +432,21 @@ To run msgpack, comment all other codes first!
 
 ---
 
+### 6️⃣ ZeroMQ
+
+To use this library, install the [libzmq](https://github.com/zeromq/libzmq) and copy
+the [zmq.hpp](https://github.com/zeromq/cppzmq/blob/master/zmq.hpp) file to **/usr/include**, and add flag `zmq` to the
+cmake `target_link_libraries`
+
+[Recommended video](https://www.youtube.com/watch?v=UrwtQfSbrOs)
+
+When we kill the ZeroMQ server, the clients connected to it are still alive and not force to shut down themselves.
+
+- **REP** and **PUSH**: Server
+- **REQ** and **PULL**: Client
+
+---
+
 ## 💡 Acknowledgments
 
 Thanks to these awesome resources:

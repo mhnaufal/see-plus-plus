@@ -15,7 +15,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC Basic-CPP Modern-CPP Object-Or
 
 target_link_directories(${PROJECT_NAME} PRIVATE Basic-CPP Modern-CPP Object-Oriented-CPP Pointer-CPP Testing-CPP Nodeflux) # link this root folder into the given sub folder
 
-target_link_libraries(${PROJECT_NAME} basic modern oop pointer test nodeflux) # link this project with the given library name
+target_link_libraries(${PROJECT_NAME} basic modern oop pointer test nodeflux zmq) # link this project with the given library name
 
 # Prepare doctest for other targets to use
 #find_package(doctest REQUIRED)
@@ -87,6 +87,12 @@ find_package(msgpack REQUIRED)
 if (msgpack_FOUND)
     target_link_libraries(${PROJECT_NAME} msgpackc-cxx)
 endif ()
+
+#################
+# zeromq #
+#################
+#find_package(cppzmq)
+#target_link_libraries(${PROJECT_NAME} cppzmq)
 
 add_subdirectory(Basic-CPP) # connect other directory within this root directory
 add_subdirectory(Modern-CPP)
