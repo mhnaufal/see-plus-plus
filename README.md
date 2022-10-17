@@ -431,6 +431,13 @@ Installation:
 We can't include pybind directly into the main.cpp file, so we use another file (example.cpp) to handle the pybind. And
 also don't forget to run it using `pythpn3` or `ipython3`
 
+**ipython command to access the generated module**
+
+- `import module`
+- `dir(module)`
+- `module.__doc__`
+- `module.function_name?`
+
 [pybind cmake references](https://github.com/pybind/cmake_example/blob/master/CMakeLists.txt)
 
 ---
