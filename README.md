@@ -105,7 +105,7 @@ Maybe there's another options, but all I know for now are those 3 options.
       `static` functions and data are functions and data that are only visible within the same translation unit. In C++
       class, we use `::` double colon to access them.
     - **using**
-      `using` to shorten your code!
+      `using` to shorten your code! To access certain namespace.
 
 2. **File**
 
@@ -126,7 +126,7 @@ Maybe there's another options, but all I know for now are those 3 options.
        ```c++
        int&& c = std::move(b);
        ```
-      _b_ is initially and lvalue, but then we use `std::move()` to change it into rvalue, and then we put the result in
+      _b_ is initially an lvalue, but then we use `std::move()` to change it into rvalue, and then we put the result in
       a _c_ which is a rvalue because we moved it from lvalue into rvalue using _&&_
     - `std::move(x)` = means "give me a **rvalue reference to x**". It can be said that `std::move()` is an **
       ownership** (rusty thing 🦀)
@@ -180,8 +180,7 @@ Maybe there's another options, but all I know for now are those 3 options.
 <summary>Object Oriented C++</summary>
 
 1. **Class**
-   In other OOP programming languages, we call functions inside a class as **methods**, but here in C++ we called it **
-   Member Functions**. Also applies for **attributes**, we call it **Data Members**. Class members are **private** by
+   In other OOP programming languages, we call functions inside a class as **methods**, but here in C++ we called it **Member Functions**. Also applies for **attributes**, we call it **Data Members**. Class members are **private** by
    default, not like Struct where they are **public** by default.
 
    Class need **at least one constructor** and **exactly one destructor**.
@@ -219,7 +218,7 @@ Maybe there's another options, but all I know for now are those 3 options.
    explanation!)
 
 3. **Class Special Functions**
-   There are 6 class special functions and compiler already **generate them** automatically if we don't specify one.
+   There are 5 class special functions and compiler already **generate them** automatically if we don't specify one.
    However, if we specify at least one, the compiler will not generate the rest. One for None.
 
 4. **Inheritance**
@@ -385,7 +384,7 @@ Some famous C++ test libraries are: **Google Test**, **Doctest**, and **Catch2**
       Use something called **reference counting**. When there is a new pointer that references a data, the number of
       reference count will increase.
     - **Weak Pointer**
-      It works the same way as the shared pointer, except weak pointer *doesn't increase** the reference count.
+      It works the same way as the shared pointer, except weak pointer *doesn't increase* the reference count.
 
 
 99. **Other Interesting In Modern C++**
@@ -393,7 +392,7 @@ Some famous C++ test libraries are: **Google Test**, **Doctest**, and **Catch2**
 - **any**: It's a data type, but more like ANY type.
 - **optional**: Function that optionally return something.
 - **chrono**: Benchmark our C++ code.
-- **constexpr**: Use this as a macro instead of `#define`
+- **constexpr**: Use this as a macro instead of `#define`. Make a runtime value act as a compile time value. Same like `template` but simpler.
 
 </details>
 
@@ -478,6 +477,25 @@ When we kill the ZeroMQ server, the clients connected to it are still alive and 
 
 - **REP** and **PUSH**: Server
 - **REQ** and **PULL**: Client
+
+---
+
+### 1️⃣1️⃣ Multithreading
+
+**Multiprocessing**  : can be accomplished using `fork`
+**Multithreading**   : can be accomplished using `std::thread`
+
+- `std::thread(func, args)`   : run the *func* accepting *args* on **another thread** (not on main thread). Need to accept function or object. Multiple threads can be created by calling the `std::thread` multiple time.
+- `std::join()`               : force the main thread to wait for other threads to finish first.
+- `std::mutex`                : create a mutex lock to prevent multiple threads accessing the same data. Must be made **globally**, so that every threads can access it.
+- `std::mutex.lock()`         : lock the mutex
+- `std::mutex.unlock()`       : unloack the mutex (need to be done manually)
+- `std::lock_guard<mutex>()`  : RAII-style mutex. Accepting mutex to be locked. Unlock happen automatically after exiting the scope.
+- `std::atomic<type>`         : create a "mutexed" variable. Using this feature make use don't require to use lock and unlock anymore.
+- `std::conditional_variable` : mechanism of *queueing* threads.
+- `std::async`                : make the function or program run asynschronously in seperated thread
+- `std::future`               : return the result of `std::async`.
+
 
 ---
 
