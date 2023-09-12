@@ -116,22 +116,54 @@ Maybe there's another options, but all I know for now are those 3 options.
 3. **lvalue** and **rvalue**
 
    _this is not the "correct" definition, but this is the "easiest" definition to understand_
-    - `lvalue` = written in the **left** of assigment operator **=**. Has **storage**
+    - `lvalue` = written in the **left** of assigment operator **=**. Has **storage** or **memory address location**. Can only take lvalue unless it is a `const`. 
     - `rvalue` = written in the **right** of assigment operator **=**. Explicit `rvalue` defined using `&&`. Doesn't
-      have **storage** or it just temporary
+      have **storage** or it just a **temporary memory address**. `rvalue` can only take rvalue.
        ```c++
        int b = a + 2;
        ```
-      _b_ is lvalue and _a + 2_ is rvalue.
+         _b_ is lvalue and _a + 2_ is rvalue.
+
        ```c++
        int&& c = std::move(b);
        ```
-      _b_ is initially an lvalue, but then we use `std::move()` to change it into rvalue, and then we put the result in
-      a _c_ which is a rvalue because we moved it from lvalue into rvalue using _&&_
-    - `std::move(x)` = means "give me a **rvalue reference to x**". It can be said that `std::move()` is an **
-      ownership** (rusty thing 🦀)
-      . [Nice read](https://eli.thegreenplace.net/2011/12/15/understanding-lvalues-and-rvalues-in-c-and-c/)
-    - `lvalue` can only take lvalue unless it's `const` and `rvalue` can only take rvalue too.
+      _b_ is **initially an lvalue**, but then we use the `std::move()` to change it into an *rvalue*, and then we put the result in
+      a **c** which is an **rvalue-reference**, because we have moved it from an lvalue into an rvalue using `&&` symbol.
+    - `lvalue-reference` = same as **reference alias**. 
+
+    ```c++
+    int& i = 10; // error, non-const lvalue reference
+    const int& i = 10; // success, "const" cause the compiler made a temporary storage for the "i"
+    ```
+
+    - `rvalue-reference` = the way we can reference an rvalue.
+      ```c++
+      int&& a = 10; // a is an rvalue-reference
+      ```
+
+      ```c++
+      std::string a = "Halo";
+      std::string b = "Hi";
+      std::string c = a + b; // resource wasteful, because behind the scene compiler to a "copying"
+      //
+      std::string a = "Halo";
+      std::string b = "Hi";
+      std::string&& c = a + b; // more efficient, because it is a "moving"
+      ```
+      We use `&&` symbol to prevent us from doing _calculation -> copying_ process. Instead what we just do is just a _calculation -> moving_. With this process, the memory can be more efficient. However, it come with a cost that slower compile/runtime.
+
+    - `std::move(x)` = means "give me the **rvalue reference to x**". It can be said that `std::move()` is an **ownership taker** (rusty thing 🦀)
+      - [Nice read](https://eli.thegreenplace.net/2011/12/15/understanding-lvalues-and-rvalues-in-c-and-c/)
+      - E.g.
+      ```c++
+      std::string a = "long";
+      std::string b = std::move(a);
+      // **string b** will hold the value of string a, and **string a** would be empty because the value has already **"moved"** to the string b.
+      
+      std::string a = "long";
+      std::string b = a;
+      // normal copy, can take too much resource
+      ```
 
 4. **Pointer**
    Just check out [the code for this one!](https://github.com/mhnaufal/see-plus-plus/tree/main/Pointer-CPP)
@@ -142,7 +174,8 @@ Maybe there's another options, but all I know for now are those 3 options.
    ```c++
    int x = 100; // declare a variable called x with type of in  t
    int *y; // declare a variable called y with type of *int
-   y = &x // assign a variable y with the value of address of x
+   y = &x; // assign a variable y with the value of address of x
+   int& z = y; // create a reference variable called z that refer to variable y
    ```
    To create an object in C++, we usually (_most of the time actually_) don't use `new` keyword, because `new` will
    allocate the data into **heap memory**, therefore we need to deallocate it using `delete`
@@ -330,6 +363,29 @@ Some famous C++ test libraries are: **Google Test**, **Doctest**, and **Catch2**
    called **RAII** (Resource Acquisition is Initialization) or in english means, **resource** (heap memory, file,
    socket) should be **owned** by an object (again, this is "rusty 🦀" thing).
 
+   1. _Unique Pointer_
+      Scope based pointer. Automatically called destructor if out of scope or move to another pointer. **Only one** ownership can exists at a time, and **no copy** is allowed.
+         ```c++
+         std::unique_ptr<T> var = std::make_unique<T>();
+         std::unique_ptr<T[]> vars = std::make_unique<T[]>(1, 2, 3);
+
+         std::unique_ptr<T> mov = std::move(var); // move is allowed, but not for copy
+         ```
+   2. _Shared Pointer_
+      Reference based pointer. Regardless of the scope, shared_ptr resource can be accessed by **multiple owner**. **Thread safe!**
+         ```c++
+         std::shared_ptr<T> var = std::make_shared<T>();
+         std::shared_ptr<T> var2 = var; // allowed here. Ref count increase to 2
+         ```
+
+   3. _Weak Pointer_
+      Similar to shared pointer, but don't have reference count. **Not-owning pointer**. Used to _break cyclic shared pointer_, and _"safer" dangling pointer._ Need to be combined with shared pointer so that it can be used and useful.
+         ```c++
+         std::weak_ptr<T> weak;
+         std::shared_ptr<T> var = std::make_shared<T>();
+         weak = var; // ref count will no increase
+         ```
+
 6. **Move Semantic**
    Before dive into move semantic, understand [**lvalue** and **rvalue** first!](#2%EF%B8%8F%E2%83%A3-basic-c)
 
@@ -376,15 +432,6 @@ Some famous C++ test libraries are: **Google Test**, **Doctest**, and **Catch2**
 
    **mutable** = allow us to make a change on a variable/data member inside a const function member, where in normal
    case, we can't
-
-10. **Smart Pointer**
-    - **Unique Pointer**
-      Scope pointer, when unique pointer goes out of scope it will get destroyed. We can't copy a unique pointer.
-    - **Shared Pointer**
-      Use something called **reference counting**. When there is a new pointer that references a data, the number of
-      reference count will increase.
-    - **Weak Pointer**
-      It works the same way as the shared pointer, except weak pointer *doesn't increase* the reference count.
 
 
 99. **Other Interesting In Modern C++**
