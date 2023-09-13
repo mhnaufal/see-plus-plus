@@ -207,10 +207,9 @@ Maybe there's another options, but all I know for now are those 3 options.
 
 ---
 
-### 3️⃣ Object Oriented C++
+### 3️⃣ Object Oriented Programming (OOP) C++
 
-<details>
-<summary>Object Oriented C++</summary>
+User-defined type (UDT). C++ compiler gives by default: **Constructor**, **Destructor**, **Copy Constructor**, **Copy Assigment Operator** (shallow copy).
 
 1. **Class**
    In other OOP programming languages, we call functions inside a class as **methods**, but here in C++ we called it **Member Functions**. Also applies for **attributes**, we call it **Data Members**. Class members are **private** by
@@ -231,7 +230,7 @@ Maybe there's another options, but all I know for now are those 3 options.
    `class` and `struct` can inherit data & functions from other classes.
 
    **Member Initializer List** = C++ ways to initialize members in constructor. Must be list in exact the same order
-   with the data member.
+   with the data member. We can use manual assignment, but it would take 2 steps, which are "create empty memory" and "assign the args".
    ```c++
    class Number {
       int a;
@@ -268,7 +267,25 @@ Maybe there's another options, but all I know for now are those 3 options.
     - **interface** = In C++, we can create an interface by defining a class with **no data members** and all function
       members are **virtual function**
 
-</details>
+5. **RAII**
+   Resource managed within its lifetime (inside pair curcly braces). It's just as simple as **"Outside the curly braces, the resource automatically released"**. Achieve by creating class and the Destructor will be called automatically. 
+
+6. **Friend Function** and **Friend Class**
+   Special function that declared inside a class, but defined outside the class's scope. The purpose of friend function is to make a functin that can access a class without being one with the class.
+      ```c++
+      // inside class code
+      friend void printOutside(Class c);
+
+      // outside class code
+      friend void printOutside(Class c) {
+         std::cout << a;
+      }
+
+      // main
+      Class c;
+      printOutside(c);
+      ```
+   **Friend class** same as friend function, but for class.
 
 ---
 
@@ -377,13 +394,13 @@ Some famous C++ test libraries are: **Google Test**, **Doctest**, and **Catch2**
          std::shared_ptr<T> var = std::make_shared<T>();
          std::shared_ptr<T> var2 = var; // allowed here. Ref count increase to 2
          ```
-
    3. _Weak Pointer_
-      Similar to shared pointer, but don't have reference count. **Not-owning pointer**. Used to _break cyclic shared pointer_, and _"safer" dangling pointer._ Need to be combined with shared pointer so that it can be used and useful.
+      Similar to shared pointer, but don't have reference count. **Not-owning pointer**. Used to _break cyclic shared pointer_, and _"safer" dangling pointer._ Need to be combined with shared pointer so that it can be used and useful. Stil same as unique pointer that will be expired when goes out of scope.
          ```c++
          std::weak_ptr<T> weak;
          std::shared_ptr<T> var = std::make_shared<T>();
          weak = var; // ref count will no increase
+         weal.is_expired(); // true if "var" goes out of scope
          ```
 
 6. **Move Semantic**
@@ -394,7 +411,16 @@ Some famous C++ test libraries are: **Google Test**, **Doctest**, and **Catch2**
    We do a lot of object passing, but we don't want to copy the object, we just want to
    pass the ownership of the object. Imagine we pass an object to a function, we need to copy the object inside the
    function, the same goes for when we return an object from a function, we need to copy it again!
-   Thus, instead of copy the object why we don't just move it? Here's where move semantic comes in.
+   **Thus, instead of copy the object why we don't just move it? Here's where move semantic comes in.**
+
+   E.g.
+   ```c++
+   std::string a = "Hello";
+   std::string b = a; // copying, taking too much resource
+   //
+   std::string a = "Hello";
+   std::string b = std::move(a); // moving, little resource, but a lose the ownership of the string "Hello" and become an empty string
+   ```
 
 7. **Function Pointer** and **Lambda**
    It's just a function that can be inputted as a value of a variable or a function that ack as an argument/parameter
